@@ -16,16 +16,15 @@ module.exports = function (app) {
             recurringDay: req.body.recurringDay,
             passengers: req.body.passengers,
             vehicleType: req.body.vehicleType,
-            pickUpAdd: req.body.pickUpAdd,
-            pickUpCity: req.body.pickUpCity,
-            pickUpState: req.body.pickUpState,
-            pickUpDay: req.body.pickUpDay,
-            pickUpTime: req.body.pickUpTime,
-            dropOffpAdd: req.body.dropOffpAdd,
-            dropOffCity: req.body.dropOffCity,
-            dropOffState: req.body.dropOffState,
-            dropOffDay: req.body.dropOffDay,
-            dropOffTime: req.body.dropOffTime
+            addressA: req.body.addressA,
+            dayA: req.body.dayA,
+            timeA: req.body.timeA,
+            addressB: req.body.addressB,
+            dayB: req.body.dayB,
+            timeB: req.body.timeB,
+            pickUpMin: req.body.pickUpMin,
+            dropOffMin: req.body.dropOffMin,
+            cost: req.body.cost
 
         }).then(function (dbSchedule) {
             res.json(dbSchedule);
