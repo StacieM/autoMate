@@ -188,6 +188,7 @@
 
         // fill array with recurring pickup days
         var recurringDays = [];
+// var recurringDays        
         for (var i=0; i<schedule.recurDays.length; i++) {
           if (schedule.recurDays[i].checked) {
             recurringDays.push(schedule.recurDays[i].value);
@@ -195,25 +196,34 @@
         }
         console.log(schedule.oneTwoWay.value); // one way or round trip choice
         console.log(schedule.recurring.value); // recurring pickup choice
+var tripType = schedule.oneTwoWay.value;
+var recurring = schedule.recurring.value;        
         if (schedule.recurring.value != "no") { // recurring days if selected
           console.log(recurringDays);
+var recurDays = recurringDays.join();
+          console.log(recurDays);
         }        
         console.log(schedule.passengers.value); // number of passengers
         console.log(schedule.vehicle.value); // vehicle type
         console.log(address1Full); // pickup address
         console.log(address2Full); // drop off address
+var passengers = schedule.passengers.value;
+var vehicle = schedule.vehicle.value;
+// var address1Full
+// var address2Full      
         if (schedule.pickup.value === "Today") { // today's date if 'Today'
           console.log(today);
         }
         else {
           console.log(schedule.pickup.value); // any date other than 'Today'
         }
-        
+var pickup1 = schedule.pickup.value;
+// var pickup2 = schedule.pickup2.value;
         
         var time1 = schedule.time.value; // pickup time
-        var time2 = schedule.time2.value; // drop off time
+        var time2 = schedule.time2.value; // two way pickup time
         var ampm1 = schedule.ampm.value; // pickup am/pm choice
-        var ampm2 = schedule.ampm2.value; // drop off am/pm choice
+        var ampm2 = schedule.ampm2.value; // two way pickup am/pm choice
         if (d.getHours() > 12) { // convert to 12 hour format and set to 'pm'
           var hours = d.getHours()-12;
           ampm1 = "pm";
@@ -232,7 +242,7 @@
         if (time1 === "Now") { // create variable if pickup is 'Now'
           time1 = hours + ":" + minutes;
         }
-        if (time2 === "Now") { // create variable if drop off is 'Now'
+        if (time2 === "Now") { // create variable if two way pickup is 'Now'
           time2 = hours + ":" + minutes;
         }
         time1 += ampm1; // add am/pm to pickup time
@@ -240,15 +250,50 @@
         console.log(time1); // pickup time
 
         if (schedule.oneTwoWay.value != "oneWay") { // if 'Round Trip' selected
-          if (schedule.pickup2.value === "Today") { // if drop off is 'Today'
+          if (schedule.pickup2.value === "Today") { // if two way is 'Today'
             console.log(today); // today's date
           }
           else {
-            console.log(schedule.pickup2.value); // drop off date
+            console.log(schedule.pickup2.value); // two way date
           }
-          console.log(time2); // drop off time
+          console.log(time2); // two way time
         }
+// var time1
+// var time2
         console.log(pickupMin);
         console.log(dropoffMin);
+// var pickupMin
+// var dropoffMin
+var cost = ("$" + (25.00).toFixed(2));
+        console.log(cost);
 
+
+
+
+
+
+
+
+        var newSchedule = {
+            trip: tripType,
+            recurring: recurring,
+            recurringDay: recurDays,
+            passengers: passengers,
+            vehicleType: vehicle,
+            addressA: address1Full,
+            dayA: pickup1,
+            timeA: time1,
+            addressB: address2Full,
+            dayB: pickup2,
+            timeB: time2,
+            pickupMin: pickupMin,
+            dropoffMin: dropoffMin,
+            cost: cost
+        };
+        $.post("/api/newSchedule", newSchedule)
+            .done(function (data) {
+                console.log(data);
+                // alert("Your profile has been submitted");
+            });
+              // console.log(newSchedule);  
       });
