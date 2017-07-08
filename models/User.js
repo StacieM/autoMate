@@ -1,34 +1,34 @@
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        firstName:  {
+        firstName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        lastName:  {
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        address:  {
+        address: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        city:  {
+        city: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        state:  {
+        state: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -63,13 +63,26 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
-        password:  {
+        password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         }
-    });
+    },
+
+        {
+            // We're saying that we want our User to have Schedules
+            classMethods: {
+                associate: function (models) {
+                    // Associating User with Schedules
+                    User.hasMany(models.Schedule, {
+                        foreignKey: 'ScheduleID'
+                    });
+                }
+            }
+        }
+    );
     return User;
 };

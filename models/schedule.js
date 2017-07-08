@@ -14,7 +14,6 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
-
         recurringDay: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -29,7 +28,6 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
-
         vehicleType: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -107,6 +105,18 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         }
-    });
+    },
+        {   
+            // We're saying that we want our User to have Schedules
+            classMethods: {
+                associate: function (models) {
+                    // A User (foreignKey) is required or a Schedule can't be made
+                    Schedule.belongsTo(models.User, {
+                        foreignKey: "ScheduleID"
+                    });
+                }
+            }
+        });
     return Schedule;
 };
+
