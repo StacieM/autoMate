@@ -1,0 +1,54 @@
+
+.container {
+  width: 45%;
+  display: inline-block;
+  min-width: 250px;
+}
+.responsive-calendar .controls {
+  text-align: center;
+}
+.responsive-calendar .controls a {
+  cursor: pointer;
+}
+.responsive-calendar .controls h4 { /* month label */
+  display: inline;
+}
+.responsive-calendar .day-headers,
+.responsive-calendar .days { /* whole calendar with day labels and all days */
+  font-size: 0;
+}
+.responsive-calendar .day { /* whole calendar with day labels and all days */
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  width: 14.285714285714286%;
+  text-align: center;
+}
+.responsive-calendar .day a { /* whole calendar days only */
+  color: #000000;
+  display: block;
+  cursor: pointer;
+  padding: 20% 0 20% 0;
+}
+.responsive-calendar .day a:hover { /* day hover */
+  background-color: #eee;
+  text-decoration: none;
+}
+.responsive-calendar .day.header { /* day labels only */
+  border-bottom: 1px gray solid;
+}
+.responsive-calendar .day.today a { /* today only */
+  background-color: gold;
+}
+.responsive-calendar .day.not-current a { /* days of NOT current month */
+  color: #888;
+}
+.responsive-calendar .day.past a { /* past days only */
+  color: #ddd;
+}
+
+/* GOOGLE MAP */
+#map {
+  height: 600px;
+  width: 100%;
+}
