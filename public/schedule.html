@@ -12,16 +12,19 @@
     <!-- *****BOOTSTRAP***** -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
- 
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <!-- Calendar scripts -->
+    <!-- <script src="../js/jquery.js"></script> -->
+    <script src="assets/scripts/responsive-calendar.js"></script>
 
-    <!-- *****LOCAL STYLES AND JS LINKS***** -->
-     <!--<link rel="stylesheet" href="assets/css/reset.css"> -->
+    <link href="assets/styles/responsive-calendar.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles/style.css">
+    
 </head>
 
 <body>
-<div> 
-
+<div>
     <!-- *****NAVIGATON BAR***** -->
     <nav id="fixedNav" class="navbar navbar-default">
       <div class="container-fluid">
@@ -33,23 +36,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/index.html"><img style="margin-top: -7px;" src="assets/images/navLogo.png" alt="AM"></a>
+          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img style="margin-top: -7px;" src="assets/images/navLogo.png" alt="AM"></a>
         </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li id="signInLink"><a href="#">Sign In<span class="sr-only">(current)</span></a></li>
-            <!--<li><a href="#">Sign In<span class="sr-only">(current)</span></a></li>-->
-            <li><a href="/newUser.html">New User</a></li>
+            <li><a href="/newUser">New User</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/contact">Contact</a></li>
                 <li role="separator" class="divider"></li>
-                <li class="active"><a href="/schedule.html">Schedule a Pick-up</a></li>
-                <!--<li role="separator" class="divider"></li>
-                <li><a href="#">Another Separated link</a></li>-->
+                <li class="active"><a href="/schedule">Schedule a Pick-up</a></li>
               </ul>
             </li>
           </ul>
@@ -64,96 +64,220 @@
 
 <!--RADIO BUTTONS-->
 <div class="scheduleForm">
-    <div> <!--SCHEDULE PICK UP TIME-->
-        <label>Select pick-up time:</label>
-            <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadioNow" value="option1"> Pick-up Now
-        </label>
-            <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadioFuture" value="option2"> Future Pick-up
-        </label>    
-    </div>
-    <div> <!--RECURRING PICK-UP-->
-        <label>Will this be a recurring pick-up?</label>
-            <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadioR-Yes" value="option1"> Yes
-        </label>
-            <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadioR-No" value="option2"> No
-        </label>    
-    </div>
-    <div> <!--NUMBER OF PASSENGERS-->
-        <label>Select number of passengers:</label>
-            <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadioP1" value="option1"> 1
+    <form action="/confirmation" method="post" name="schedule">
+        <div> <!--SCHEDULE PICK UP TIME-->
+            <label>One-Way or Round-Trip:</label><br>
+                <label class="radio-inline">
+                <input type="radio" name="oneTwoWay" class="oneTwoWay" value="oneWay" checked> One-Way
             </label>
             <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadioP2" value="option2"> 2
+                <input type="radio" name="oneTwoWay" class="oneTwoWay" value="twoWay"> Round-Trip
+            </label>    
+        </div>
+        <div> <!--RECURRING PICK-UP-->
+            <label>Will this be a recurring pick-up?</label><br>
+               <label class="radio-inline">
+                  <input type="radio" name="recurring" class="recurring" value="no" checked> No
+              </label>
+              <label class="radio-inline">
+                  <input type="radio" name="recurring" class="recurring" value="yes"> Yes
+              </label>    
+        </div>
+        <div id="recurDays"> <!-- RECURRING DAYS -->
+              <label>Select days for recurring pick-up?</label><br>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Monday"> Monday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Tuesday"> Tuesday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Wednesday"> Wednesday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Thursday"> Thursday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Friday"> Friday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Saturday"> Saturday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Sunday"> Sunday
+              </label>
+        </div>
+        <div> <!--NUMBER OF PASSENGERS-->
+            <label>Select number of passengers:</label><br>
+            <label class="radio-inline">
+                <input type="radio" name="passengers" id="inlineRadioP1" value="1" checked> 1
             </label>
             <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadioP3" value="option3"> 3
+                <input type="radio" name="passengers" id="inlineRadioP2" value="2"> 2
             </label>
             <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadioP4" value="option3"> 4
+                <input type="radio" name="passengers" id="inlineRadioP3" value="3"> 3
             </label>
             <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadioP5" value="option3"> 5
+                <input type="radio" name="passengers" id="inlineRadioP4" value="4"> 4
             </label>
             <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadioP6" value="option3"> 6
+                <input type="radio" name="passengers" id="inlineRadioP5" value="5"> 5
             </label>
-    </div>
-    <div> <!--SELECT VEHICLE TYPE-->
-        <label>Select vehicle type:</label>
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadioV1" value="option1"> Economy
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadioV2" value="option2"> Mid-Size
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadioV3" value="option3"> Luxury
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadioV3" value="option4"> Carpool
-        </label>
-    </div>
-<br>
-<br>
-<!--PICK-UP & DROP-OFF ADDRESS FORM-->
-    <div class="panel panel-default">
-        <form>
+            <label class="radio-inline">
+                <input type="radio" name="passengers" id="inlineRadioP6" value="6"> 6
+            </label>
+        </div>
+        <div> <!--SELECT VEHICLE TYPE-->
+            <label>Select vehicle type:</label><br>
+            <label class="radio-inline">
+                <input type="radio" name="vehicle" id="inlineRadioV1" value="economy" checked> Economy
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="vehicle" id="inlineRadioV2" value="midSize"> Mid-Size
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="vehicle" id="inlineRadioV3" value="luxury"> Luxury
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="vehicle" id="inlineRadioV3" value="carpool"> Carpool
+            </label>
+        </div>
+        <!--PICK-UP & DROP-OFF ADDRESS FORM-->
+<div ng-app="addressApp" ng-controller="myCtrl">        
+        <div class="address">
             <div class="form-group">
-                <label for="address-input">Pick up Street Address:</label>
-                <input type="text" class="form-control" id="address-input" placeholder="123 First Street">
+                <label for="address-input">Pick Up Address:</label>
+                <input type="text" class="form-control" id="address-input" ng-model="addressInput" ng-change="addressFunc()" placeholder="123 First Street">
             </div>
             <div class="form-group">
-                <!--<label for="city-input">City:</label>-->
-                <input type="text" class="form-control" id="city-input" placeholder="City">
+                <input type="text" class="form-control" id="city-input" ng-model="cityInput" ng-change="addressFunc()" placeholder="City">
             </div>
             <div class="form-group">
-                <!--<label for="state-input">State:</label>-->
-                <input type="state" class="form-control" id="state-input" placeholder="CA">
+                <input type="text" class="form-control" id="state-input" ng-model="stateInput" ng-change="addressFunc()" placeholder="CA">
             </div>
+        </div>
+
+        <div class="address">
+            <div class="form-group">
+                <label for="address2-input">Drop off Address:</label>
+                <input type="text" class="form-control" id="address2-input" ng-model="address2Input" ng-change="addressFunc()" placeholder="123 First Street">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="city2-input" ng-model="city2Input" ng-change="addressFunc()" placeholder="City">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="state2-input" ng-model="state2Input" ng-change="addressFunc()" placeholder="CA">
+            </div>
+        </div>     
+</div>
+        <!--CALENDARS-->
+        <div class="container" id="cal">
+            <label>Pick up</label>
+            <div class="responsive-calendar">
+                <div class="controls">
+                    <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
+                    <h4><span data-head-year></span> <span data-head-month></span></h4>
+                    <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
+                </div>
+                <hr/>
+                <div class="day-headers">
+                  <div class="day header">Mon</div>
+                  <div class="day header">Tue</div>
+                  <div class="day header">Wed</div>
+                  <div class="day header">Thu</div>
+                  <div class="day header">Fri</div>
+                  <div class="day header">Sat</div>
+                  <div class="day header">Sun</div>
+                </div>
+                <div class="days" data-group="days">
+                  <!--DYNAMIC CALENDAR CONTENT-->
+                </div>
+            </div>
+            <div ng-app="datePicker" ng-controller="dateCtrl">
+                <label>Pick up Day</label>
+                <input type="text" id="pickup" name="pickup" ng-model="pickup">
+            </div>
+            <div>
+                <label>Pick up Time</label>
+                <select name="time">
+                    <option value="Now">Now</option>
+                    <option value="1:00">1:00</option>
+                    <option value="2:00">2:00</option>
+                    <option value="3:00">3:00</option>
+                    <option value="4:00">4:00</option>
+                    <option value="5:00">5:00</option>
+                    <option value="6:00">6:00</option>
+                    <option value="7:00">7:00</option>
+                    <option value="8:00">8:00</option>
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                </select>
+                &nbsp;
+                <input type="radio" name="ampm" id="am" value="am"> am &nbsp;
+                <input type="radio" name="ampm" id="pm" value="pm"> pm
+            </div>
+        </div>
+
+        <!-- RETURN TRIP CALENDAR -->
+        <div class="container" id="cal2">
+            <label>Return</label>
+            <div class="responsive-calendar">
+                <div class="controls">
+                    <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
+                    <h4><span data-head-year></span> <span data-head-month></span></h4>
+                    <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
+                </div>
+                <hr/>
+                <div class="day-headers">
+                  <div class="day header">Mon</div>
+                  <div class="day header">Tue</div>
+                  <div class="day header">Wed</div>
+                  <div class="day header">Thu</div>
+                  <div class="day header">Fri</div>
+                  <div class="day header">Sat</div>
+                  <div class="day header">Sun</div>
+                </div>
+                <div class="days2" data-group="days">
+                  <!--DYNAMIC CALENDAR CONTENT-->
+                </div>
+            </div>
+            <div ng-app="datePicker2" ng-controller="dateCtrl2">
+                <label>Return Day</label>
+                <input type="text" id="pickup2" name="pickup2" ng-model="pickup2">
+            </div>
+             <div>
+                <label>Return Time</label>
+                <select name="time2">
+                    <option value="Now">Now</option>
+                    <option value="1:00">1:00</option>
+                    <option value="2:00">2:00</option>
+                    <option value="3:00">3:00</option>
+                    <option value="4:00">4:00</option>
+                    <option value="5:00">5:00</option>
+                    <option value="6:00">6:00</option>
+                    <option value="7:00">7:00</option>
+                    <option value="8:00">8:00</option>
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                </select>
+                &nbsp;
+                <input type="radio" name="ampm2" id="am2" value="am"> am &nbsp;
+                <input type="radio" name="ampm2" id="pm2" value="pm"> pm
+            </div>
+        </div>
         <br>
-            <div class="form-group">
-                <label for="address-input">Drop off Street Address:</label>
-                <input type="text" class="form-control" id="address-input" placeholder="123 First Street">
-            </div>
-            <div class="form-group">
-                <!--<label for="city-input">City:</label>-->
-                <input type="text" class="form-control" id="city-input" placeholder="City">
-            </div>
-            <div class="form-group">
-                <!--<label for="state-input">State:</label>-->
-                <input type="state" class="form-control" id="state-input" placeholder="CA">
-            </div>
         <br>  
             <button type="submit" class="btn btn-default">Submit</button>
             <button type="reset" class="btn btn-default">Reset</button>
-      </form>
-    </div>  
+    </form>
 </div>
+
+<div id="map"></div>
 
 <footer>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -164,7 +288,7 @@
 </footer>  
 
 <div>
-  <iframe src="/signin.html" id="iframe">
+  <iframe src="/signin" id="iframe">
   </iframe>
 </div>
 
@@ -172,8 +296,16 @@
 </html>	
 
 
+
+
 <script>
 $("#signInLink").click(function(){
   document.getElementById("iframe").style.display = "block";
 });
 </script>
+
+    <!-- Main javascript functionality -->
+    <script src="assets/scripts/main.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjDBoGica2XNgdy4WZ41sQf-Hiw5cotts&callback=initMap"
+    async defer></script>
