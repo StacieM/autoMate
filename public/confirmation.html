@@ -13,14 +13,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     
-    <!--  ********GOOGLE FONTS********  -->
-    <!--<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">-->
-
-
     <!-- *****LOCAL STYLES AND JS LINKS***** -->
      <!--<link rel="stylesheet" href="assets/css/reset.css"> -->
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
 <body>
@@ -31,27 +26,27 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" class="brandInitials" class="navLogo" href="index.html"><img style="margin-top: -7px;" src="assets/navLogo.png" alt="AM"></a>
+          </button> -->
+          <a class="navbar-brand" class="brandInitials" class="navLogo" href="index.html"><img style="margin-top: -7px;" src="assets/images/navLogo.png" alt="AM"></a>
         </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li id="signInLink"><a href="index.html">Sign In<span class="sr-only">(current)</span></a></li>
+            <li id="signInLink"><a href="#"><span class="sr-only">(current)</span></a></li> -->
             <!--<li><a href="#">Sign In<span class="sr-only">(current)</span></a></li>-->
-            <li><a href="newuser.html">New User</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
+           <!--  <li><a href="#"></a></li> -->
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li class="active"><a href="Contact.html">Contact</a></li>
+                <li><a href="#"></a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="schedule.html">Schedule a Pick-up</a></li>
+                <li><a href="#"></a></li> -->
                 <!--<li role="separator" class="divider"></li>
                 <li><a href="#">Another Separated link</a></li>-->
               </ul>
@@ -60,42 +55,39 @@
         </div>
     </nav>
 
-    <div>
-      <iframe src="signin.html" id="iframe">
-      </iframe>
-    </div>
-
 </div>
 
 <div class="servicesInfo">
-  <h1>Contact Us</h1>
+  <h1>Thank you for your purchase!<br>
+        Your ride is on the way.</h1>
 </div>
-
-<div class="contactForm">
+<br>
+<div class="confirmationForm">
 <div class="panel panel-default">
       <form>
         <div class="form-group">
-          <label for="fName-input">First Name:</label>
-          <input type="text" class="form-control" id="fName-input">
+          <label>Date of order:</label>
+          <!-- <input type="text" class="form-control" id="fName-input" placeholder="John"> -->
         </div>
         <div class="form-group">
-          <label for="lName-input">Last Name:</label>
-          <input type="text" class="form-control" id="lName-input">
+          <label>Purchase amount:</label>
+          <!-- <input type="text" class="form-control" id="lName-input" placeholder="Doe"> -->
         </div>
         <div class="form-group">
-          <label for="email-input">Email address:</label>
-          <input type="email" class="form-control" id="email-input">
+          <label>Credit Card charged:</label>
+          <!-- <input type="text" class="form-control" id="address-input" placeholder="123 First Street"> -->
         </div>
         <div class="form-group">
-          <label for="tel-input">Phone#:</label>
-          <input type="tel" class="form-control" id="tel-input">
+          <label>Pick-up address:</label>
+          <!-- <input type="text" class="form-control" id="city-input" placeholder="City"> -->
         </div>
         <div class="form-group">
-          <label for="notes-input-input">Notes:</label>
-          <input type="text" class="form-control" id="notes-input">
-        </div><br>  
-        <button type="submit" class="btn btn-default">Submit</button>
-        <button type="reset" class="btn btn-default">Reset</button>
+          <label>Drop-off address:</label>
+          <!-- <input type="state" class="form-control" id="state-input" placeholder="CA"> -->
+        </div>
+        <br>  
+        <button type="submit" class="btn btn-default">Confirm</button>
+
       </form>
     </div>  
   
@@ -108,7 +100,12 @@
     <a href="https://www.pinterest.com/" class="fa fa-pinterest" target="_blank"></a>
     <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank"></a>
 </footer>  
-   
+
+<div>
+  <iframe src="signin.html" id="iframe">
+  </iframe>
+</div>
+
 </body>
 </html>	
 

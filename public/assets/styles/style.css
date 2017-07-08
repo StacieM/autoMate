@@ -37,7 +37,7 @@ html, body {
 /**********FIRST BACKGROUND IMAGE ON HOME PG**********/
 .banner { 
     margin: 0px auto;
-    background-image: url("mainLogo.png");
+    background-image: url("../images/mainLogo.png");
     height: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -67,16 +67,16 @@ p {
 }
 
 .imageBox {
-    background-image: url("Tesla.png");
+    background-image: url("../images/Tesla.png");
 }
 
 .imageBox2 {
-    background-image: url("hyundai.png");  
+    background-image: url("../images/hyundai.png");  
 }
 
 .imageBox3 {
     height: 100%;
-    background-image: url("background.png");
+    background-image: url("../images/background.png");
 }
 
 /**********FOOTER**********/
@@ -176,7 +176,7 @@ iframe { /*contains the .modal container*/
     opacity: 0.8;
 }
 
-/**********HEADING & FORM MARGINS FOR CONTACT, NEW USER & SCHEDULE PGS**********/
+/**********HEADING & FORM MARGINS FOR CONTACT, NEW USER, SCHEDULE & CONFIRMATION PGS**********/
 .servicesInfo {
     margin-top: 70px;
     font-weight: bold;
@@ -192,5 +192,9 @@ iframe { /*contains the .modal container*/
 
 .panel-default {
 	border: none;
+}
+
+.confirmationForm {
+    margin: 20px;
 }
 
