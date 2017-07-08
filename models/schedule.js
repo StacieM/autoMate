@@ -1,20 +1,112 @@
 module.exports = function (sequelize, DataTypes) {
     var Schedule = sequelize.define("Schedule", {
-        trip: DataTypes.STRING,
-        recurring: DataTypes.BOOLEAN,
-        recurring2:Datatypes.STRING,
-        passengers: DataTypes.INTEGER,
-        vehicleType: DataTypes.STRING,
-        pickUpAdd: Datatypes.STRING,
-        pickUpCity: Datatypes.STRING,
-        pickUpState: Datatypes.STRING,
-        pickUpDay: Datatypes.STRING,
-        pickUpTime: Datatypes.STRING,
-        dropOffpAdd: Datatypes.STRING,
-        dropOffCity: Datatypes.STRING,
-        dropOffState: Datatypes.STRING,
-        dropOffDay: Datatypes.STRING,
-        dropOffTime: Datatypes.STRING
+        trip: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        recurring: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+
+        recurringDay: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        passengers: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+
+        vehicleType: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        pickUpAdd: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        pickUpCity: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        pickUpState: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        pickUpDay: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        pickUpTime: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        dropOffpAdd: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        dropOffCity: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        dropOffState: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        dropOffDay: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        dropOffTime: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }
     });
     return Schedule;
 };

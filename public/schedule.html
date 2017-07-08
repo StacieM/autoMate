@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"name="viewport" content="width=device-width" initial-scale="1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AutoMate</title>
+
+    <!-- *****JQUERY***** -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <!-- *****BOOTSTRAP***** -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="../css/responsive-calendar.css" rel="stylesheet">
+</head>
+
+<body>
+<div>
+    <!-- *****NAVIGATON BAR***** -->
+    <nav id="fixedNav" class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" class="brandInitials" class="navLogo" href="index.html"><img style="margin-top: -7px;" src="assets/navLogo.png" alt="AM"></a>
+        </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li id="signInLink"><a href="#">Sign In<span class="sr-only">(current)</span></a></li>
+            <li><a href="newuser.html">New User</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="Contact.html">Contact</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="active"><a href="schedule.html">Schedule a Pick-up</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+</div>
+
+<div class="servicesInfo">
+  <h1>Schedule a Pick-up</h1>
+</div>
+
+<!--RADIO BUTTONS-->
+<div class="scheduleForm">
+    <form>
+        <div> <!--SCHEDULE PICK UP TIME-->
+            <label>One-Way or Round-Trip:</label><br>
+                <label class="radio-inline">
+                <input type="radio" name="oneTwoWay" class="oneTwoWay" value="oneWay" checked> One-Way
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="oneTwoWay" class="oneTwoWay" value="twoWay"> Round-Trip
+            </label>    
+        </div>
+        <div> <!--RECURRING PICK-UP-->
+            <label>Will this be a recurring pick-up?</label><br>
+               <label class="radio-inline">
+                  <input type="radio" name="recurring" class="recurring" value="no" checked> No
+              </label>
+              <label class="radio-inline">
+                  <input type="radio" name="recurring" class="recurring" value="yes"> Yes
+              </label>    
+        </div>
+        <div id="recurDays" style="display: none"> <!-- RECURRING DAYS -->
+              <label>Select days for recurring pick-up?</label><br>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Monday"> Monday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Tuesday"> Tuesday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Wednesday"> Wednesday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Thursday"> Thursday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Friday"> Friday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Saturday"> Saturday
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name="recurDays" value="Sunday"> Sunday
+              </label>
+        </div>
+        <div> <!--NUMBER OF PASSENGERS-->
+            <label>Select number of passengers:</label><br>
+            <label class="radio-inline">
+                <input type="radio" name="passengers" id="inlineRadioP1" value="option1" checked> 1
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="passengers" id="inlineRadioP2" value="option2"> 2
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="passengers" id="inlineRadioP3" value="option3"> 3
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="passengers" id="inlineRadioP4" value="option3"> 4
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="passengers" id="inlineRadioP5" value="option3"> 5
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="passengers" id="inlineRadioP6" value="option3"> 6
+            </label>
+        </div>
+        <div> <!--SELECT VEHICLE TYPE-->
+            <label>Select vehicle type:</label><br>
+            <label class="radio-inline">
+                <input type="radio" name="vehicle" id="inlineRadioV1" value="option1" checked> Economy
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="vehicle" id="inlineRadioV2" value="option2"> Mid-Size
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="vehicle" id="inlineRadioV3" value="option3"> Luxury
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="vehicle" id="inlineRadioV3" value="option4"> Carpool
+            </label>
+        </div>
+        <!--PICK-UP & DROP-OFF ADDRESS FORM-->        
+        <div class="address" ng-app="addressApp" ng-controller="myCtrl">
+            <div class="form-group">
+                <label for="address-input">Pick Up Address:</label>
+                <input type="text" class="form-control" id="address-input" ng-model="addressInput" ng-change="addressFunc()" placeholder="123 First Street">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="city-input" ng-model="cityInput" ng-change="addressFunc()" placeholder="City">
+            </div>
+            <div class="form-group">
+                <input type="state" class="form-control" id="state-input" ng-model="stateInput" ng-change="addressFunc()" placeholder="CA">
+            </div>
+        </div>
+
+        <div class="address">
+            <div class="form-group">
+                <label for="address2-input">Drop off Address:</label>
+                <input type="text" class="form-control" id="address2-input" placeholder="123 First Street">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="city2-input" placeholder="City">
+            </div>
+            <div class="form-group">
+                <input type="state" class="form-control" id="state2-input" placeholder="CA">
+            </div>
+        </div>
+
+        <!--CALENDARS-->
+        <div class="container" id="cal">
+            <label>Pick up</label>
+            <div class="responsive-calendar">
+                <div class="controls">
+                    <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
+                    <h4><span data-head-year></span> <span data-head-month></span></h4>
+                    <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
+                </div>
+                <hr/>
+                <div class="day-headers">
+                  <div class="day header">Mon</div>
+                  <div class="day header">Tue</div>
+                  <div class="day header">Wed</div>
+                  <div class="day header">Thu</div>
+                  <div class="day header">Fri</div>
+                  <div class="day header">Sat</div>
+                  <div class="day header">Sun</div>
+                </div>
+                <div class="days" data-group="days">
+                  <!--DYNAMIC CALENDAR CONTENT-->
+                </div>
+            </div>
+            <div ng-app="datePicker" ng-controller="dateCtrl">
+                <label>Pick up Day</label>
+                <input type="text" id="pickup" name="pickup" ng-model="pickup">
+            </div>
+            <div>
+                <label>Pick up Time</label>
+                <select name="time">
+                    <option value="1:00">Now</option>
+                    <option value="1:00">1:00</option>
+                    <option value="2:00">2:00</option>
+                    <option value="3:00">3:00</option>
+                    <option value="4:00">4:00</option>
+                    <option value="5:00">5:00</option>
+                    <option value="6:00">6:00</option>
+                    <option value="7:00">7:00</option>
+                    <option value="8:00">8:00</option>
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                </select>
+                &nbsp;
+                <input type="radio" name="ampm" id="am" value="am"> am &nbsp;
+                <input type="radio" name="ampm" id="pm" value="pm"> pm
+            </div>
+        </div>
+
+        <!-- RETURN TRIP CALENDAR -->
+        <div class="container" id="cal2" style="display:none">
+            <label>Return</label>
+            <div class="responsive-calendar">
+                <div class="controls">
+                    <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
+                    <h4><span data-head-year></span> <span data-head-month></span></h4>
+                    <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
+                </div>
+                <hr/>
+                <div class="day-headers">
+                  <div class="day header">Mon</div>
+                  <div class="day header">Tue</div>
+                  <div class="day header">Wed</div>
+                  <div class="day header">Thu</div>
+                  <div class="day header">Fri</div>
+                  <div class="day header">Sat</div>
+                  <div class="day header">Sun</div>
+                </div>
+                <div class="days2" data-group="days">
+                  <!--DYNAMIC CALENDAR CONTENT-->
+                </div>
+            </div>
+            <div ng-app="datePicker2" ng-controller="dateCtrl2">
+                <label>Return Day</label>
+                <input type="text" id="pickup2" name="pickup2" ng-model="pickup2">
+            </div>
+             <div>
+                <label>Return Time</label>
+                <select name="time2">
+                    <option value="1:00">Now</option>
+                    <option value="1:00">1:00</option>
+                    <option value="2:00">2:00</option>
+                    <option value="3:00">3:00</option>
+                    <option value="4:00">4:00</option>
+                    <option value="5:00">5:00</option>
+                    <option value="6:00">6:00</option>
+                    <option value="7:00">7:00</option>
+                    <option value="8:00">8:00</option>
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                </select>
+                &nbsp;
+                <input type="radio" name="ampm2" id="am2" value="am"> am &nbsp;
+                <input type="radio" name="ampm2" id="pm2" value="pm"> pm
+            </div>
+        </div>
+        <br>
+        <br>  
+            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+</div>
+
+<div id="map"></div>
+
+<footer>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <a href="https://www.facebook.com/" class="fa fa-facebook" target="_blank"></a>
+    <a href="https://www.twitter.com/" class="fa fa-twitter" target="_blank"></a>
+    <a href="https://www.pinterest.com/" class="fa fa-pinterest" target="_blank"></a>
+    <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank"></a>
+</footer>  
+
+<div>
+  <iframe src="signin.html" id="iframe">
+  </iframe>
+</div>
+
+</body>
+</html>	
+
+
+
+
+<script>
+$("#signInLink").click(function(){
+  document.getElementById("iframe").style.display = "block";
+});
+</script>
+
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/responsive-calendar.js"></script>
+    <script type="text/javascript">
+      var d = new Date(), // get computer date
+      month = d.getMonth()+1,
+      day = d.getDate(),
+      year = d.getFullYear(),
+      setMonth = year + "-" + month,
+      today = month + "-" + day;
+      $("#pickup").val("Today");
+      $("#pickup2").val("Today");
+
+      $(document).ready(function() {
+        $("#cal").responsiveCalendar({
+          time: setMonth // set calendar to current month
+        });
+        var calendar = document.getElementById("cal");
+        // console.log(calendar[0]);
+        $(".today a").attr("style", "background-color: gold");
+      });
+
+      // ONE WAY or ROUND TRIP
+      $(".oneTwoWay").click(function() {
+        if (event.target.value === "oneWay") {
+            $("#cal2").attr("style", "display: none;");
+            $(".days2 .day a").attr("style", "background-color: #fff");
+            $("#pickup2").val("Today");
+        }
+        else {
+            $("#cal2").attr("style", "display: inline-block;");
+            $(".days .day a").attr("style", "background-color: #fff");
+            $("#pickup").val("Today");
+            $("#cal2").responsiveCalendar({
+              time: setMonth // set calendar to current month
+            });
+            var calendar2 = document.getElementById("cal2");
+            // console.log(calendar2[0]);
+            $(".today a").attr("style", "background-color: gold");
+        }
+      });
+
+      // RECURRING DAYS
+      $(".recurring").click(function() {
+        $("#recurDays").toggle();
+      });
+
+      // INITIAL TRIP CALENDAR
+      $(".days").click(function() {
+        // console.log(event.target);
+        $(".days .day a").attr("style", "background-color: #fff");
+        event.target.setAttribute("style", "background-color: gold");
+        var selYear = event.target.getAttribute("data-year");
+        var selMonth = event.target.getAttribute("data-month");
+        var selDay = event.target.getAttribute("data-day");
+        $("#pickup").val(selMonth + "-" + selDay + "-" + selYear);
+      });
+
+      var dates = angular.module('datePicker', []);
+      dates.controller('dateCtrl', function($scope) {        
+          $scope.pickup = "Today";
+      });
+
+      // RETURN TRIP CALENDAR
+      $(".days2").click(function() {
+        // console.log(event.target);
+        $(".days2 .day a").attr("style", "background-color: #fff");
+        event.target.setAttribute("style", "background-color: gold");
+        var selYear = event.target.getAttribute("data-year");
+        var selMonth = event.target.getAttribute("data-month");
+        var selDay = event.target.getAttribute("data-day");
+        $("#pickup2").val(selMonth + "-" + selDay + "-" + selYear);
+      });
+
+      var dates2 = angular.module('datePicker2', []);
+      dates2.controller('dateCtrl2', function($scope) {        
+          $scope.pickup2 = "Today";
+      });
+    </script>
+
+
+
+    <!-- GOOGLE MAP -->
+    <script>
+
+      var address1Full;
+      // var address2Full;
+
+      angular.module('addressApp', [])
+      .controller('myCtrl', ['$scope', function($scope) {
+        $scope.addressFunc = function() {
+          var address1 = $scope.addressInput;
+          var city1 = $scope.cityInput;
+          var state1 = $scope.stateInput;
+          if ($scope.addressInput && $scope.cityInput && $scope.stateInput) {
+            address1Full = address1 + ", " + city1 + ", " + state1;
+            initMap();
+          }
+        };
+      }]);
+
+      /*angular.module('address2App', [])
+      .controller('myCtrl2', ['$scope', function($scope) {
+        $scope.address2Func = function() {
+          var address2 = $scope.address2Input;
+          var city2 = $scope.city2Input;
+          var state2 = $scope.state2Input;
+          if ($scope.address2Input && $scope.city2Input && $scope.state2Input) {
+            address2Full = address2 + ", " + city2 + ", " + state2;
+            initMap();
+          }
+        };
+      }]);*/
+
+
+
+      function initMap() {        
+        var bounds = new google.maps.LatLngBounds;
+        var markersArray = [];
+        address1Full = address1Full || "Irvine, CA";
+        // address1Full = address2Full || "Costa Mesa, CA";
+        var origin1 = address1Full;
+        // var origin2 = ;
+        var destinationA = 'Irvine Station, Irvine, CA';
+        // var destinationB = address2Full;
+        var destinationB = 'In-n-out, Campus Drive, Irvine, CA';
+
+        var destinationIcon = 'https://chart.googleapis.com/chart?' +
+            'chst=d_map_pin_letter&chld=D|FF0000|000000';
+        var originIcon = 'https://chart.googleapis.com/chart?' +
+            'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 33.656738, lng: -117.733533},
+          zoom: 10,
+          scrollwheel: false
+        });
+
+        var geocoder = new google.maps.Geocoder;
+        var service = new google.maps.DistanceMatrixService;
+        service.getDistanceMatrix({
+          origins: [origin1/*, origin2*/],
+          destinations: [destinationA, destinationB],
+          travelMode: 'DRIVING',
+          unitSystem: google.maps.UnitSystem.METRIC,
+          avoidHighways: false,
+          avoidTolls: false
+        }, function(response, status) {
+          if (status !== 'OK') {
+            alert('Error was: ' + status);
+          } else {
+            var originList = response.originAddresses;
+            var destinationList = response.destinationAddresses;
+            var outputDiv = document.getElementById('output');
+            // outputDiv.innerHTML = '';
+            deleteMarkers(markersArray);
+
+            var showGeocodedAddressOnMap = function(asDestination) {
+              var icon = asDestination ? destinationIcon : originIcon;
+              return function(results, status) {
+                if (status === 'OK') {
+                  map.fitBounds(bounds.extend(results[0].geometry.location));
+                  markersArray.push(new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location,
+                    icon: icon
+                  }));
+                } else {
+                  alert('Geocode was not successful due to: ' + status);
+                }
+              };
+            };
+
+            for (var i = 0; i < originList.length; i++) {
+              var results = response.rows[i].elements;
+              geocoder.geocode({'address': originList[i]},
+                  showGeocodedAddressOnMap(false));
+              for (var j = 0; j < results.length; j++) {
+                geocoder.geocode({'address': destinationList[j]},
+                    showGeocodedAddressOnMap(true));
+                /*outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
+                    ': ' + results[j].distance.text + ' in ' +
+                    results[j].duration.text + '<br>';*/
+                console.log(destinationList[j]);
+              }
+              console.log("Pickup from " + originList);
+              console.log("Car arrival in " + results[0].duration.text);
+              console.log("Ride time " + results[1].duration.text);
+            }
+          }
+        });
+      }
+
+
+      function deleteMarkers(markersArray) {
+        for (var i = 0; i < markersArray.length; i++) {
+          markersArray[i].setMap(null);
+        }
+        markersArray = [];
+      }
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjDBoGica2XNgdy4WZ41sQf-Hiw5cotts&callback=initMap"
+    async defer></script>
