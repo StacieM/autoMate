@@ -274,7 +274,36 @@ var cost = ("$" + (25.00).toFixed(2));
         console.log(cost);
 
 
+/*NEW USER PAGE*/
+           /*var firstName = newuser.fName.value;
+             var lastName = newuser.lName.value;
+             var address = newuser.address.value;
+             var city = newuser.city.value;
+             var state = newuser.state.value;
+             var zip = newuser.zip.value;
+             var phone = newuser.tel.value;
+             var creditCard = newuser.ccNum.value;
+             var email = newuser.email.value;
+             var password = newuser.password.value;
 
+          var newUser = {
+                     firstName: firstName,
+                     lastName: lastName,
+                     address: address,
+                     city: city,
+                     state: state,
+                     zip: zip,
+                     phone: phone,
+                     creditCard: creditCard,
+                     email: email,
+                     password: password
+          };
+       $.post("/api/newUser", newUser)
+           .done(function (data) {
+               console.log(data);
+               // alert("Your profile has been submitted");
+           });
+          console.log(newUser);*/  
 
 
 
@@ -300,5 +329,35 @@ var cost = ("$" + (25.00).toFixed(2));
             .done(function (data) {
                 // console.log(data);
         });
-        console.log(newSchedule);  
+        // console.log(newSchedule);  
       });
+
+
+// CONFIRMATION PAGE
+// var confDate=$("#confDate");
+// var confCost=$("#confCost");
+// var confCreditCard=$("#confCreditCard");
+// var confAddressA=$("#confAddressA");
+// var confAddressB=$("#confAddressB");
+//  function getScheduleData() { //get schedule data for time, cost, pickup/drop address
+//     $.get("/api/newSchedule/", function(data) {
+//       if (data) {
+//         console.log(data[4]);
+//         confDate.html(data[4].createdAt);
+//         confCost.html(data[4].cost);
+//         confAddressA.html(data[4].addressA);
+//         confAddressB.html(data[4].addressB);
+//         //updating = true;
+//       }
+//     });
+//   }
+// getScheduleData();
+  // function getUserData() { //get userData for creditcard info
+  //   $.get("/api/newUser/", function(data) {
+  //     if (data) {
+        
+  //       confCreditCard.html(data.creditCard)
+      
+  //     }
+  //   });
+  // }
