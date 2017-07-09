@@ -2,12 +2,12 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    //do i need app.get?
-    // app.get("/api/newSchedule", function (req, res) {
-    //     db.Schedule.findAll({}).then(function (dbSchedule) {
-    //         res.json(dbSchedule);
-    //     });
-    // });
+    
+    app.get("/api/newSchedule", function (req, res) {
+        db.Schedule.findAll({}).then(function (dbSchedule) {
+            res.json(dbSchedule);
+        });
+    });
 
     app.post("/api/newSchedule", function (req, res) {
         db.Schedule.create({

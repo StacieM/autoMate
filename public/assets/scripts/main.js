@@ -183,7 +183,8 @@
       }
 
       /*FORM SUBMIT*/
-      $("form").submit(function(){      
+     // $("form").submit(function(){      
+       $("form").on("click",function(event){      
         event.preventDefault();
 
         // fill array with recurring pickup days
@@ -292,8 +293,8 @@ var cost = ("$" + (25.00).toFixed(2));
         };
         $.post("/api/newSchedule", newSchedule)
             .done(function (data) {
-                console.log(data);
-                // alert("Your profile has been submitted");
+                //console.log(data);
+                 alert("Your profile has been submitted");
             });
               // console.log(newSchedule);  
       });

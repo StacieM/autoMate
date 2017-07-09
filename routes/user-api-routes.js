@@ -14,7 +14,7 @@ module.exports = function (app) {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             address: req.body, address,
-            city: req.body.address,
+            city: req.body.city,
             state: req.body.state,
             zip: req.body.zip,
             phone: req.body.phone,
