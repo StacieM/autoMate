@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoMate</title>
 
+    <!-- *****AJAX***** -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- *****JQUERY***** -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
     <!-- *****BOOTSTRAP***** -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
+
     <!-- *****LOCAL STYLES AND JS LINKS***** -->
      <!--<link rel="stylesheet" href="assets/css/reset.css"> -->
     <link rel="stylesheet" href="assets/styles/style.css">
@@ -63,46 +66,46 @@
 
 <div class="newuserForm">
 <div class="panel panel-default">
-      <form>
+      <form action="/schedule" method="post" name="newuser">
         <div class="form-group">
-          <label for="fName-input">First Name:</label>
-          <input type="text" class="form-control" id="fName-input" placeholder="John">
+          <label for="fName">First Name:</label>
+          <input type="text" class="form-control" name="fName" placeholder="John">
         </div>
         <div class="form-group">
-          <label for="lName-input">Last Name:</label>
-          <input type="text" class="form-control" id="lName-input" placeholder="Doe">
+          <label for="lName">Last Name:</label>
+          <input type="text" class="form-control" name="lName" placeholder="Doe">
         </div>
         <div class="form-group">
-          <label for="address-input">Street Address:</label>
-          <input type="text" class="form-control" id="address-input" placeholder="123 First Street">
+          <label for="address">Street Address:</label>
+          <input type="text" class="form-control" name="address" placeholder="123 First Street">
         </div>
         <div class="form-group">
-          <label for="city-input">City:</label>
-          <input type="text" class="form-control" id="city-input" placeholder="City">
+          <label for="city">City:</label>
+          <input type="text" class="form-control" name="city" placeholder="City">
         </div>
         <div class="form-group">
-          <label for="state-input">State:</label>
-          <input type="state" class="form-control" id="state-input" placeholder="CA">
+          <label for="state">State:</label>
+          <input type="state" class="form-control" name="state" placeholder="CA">
         </div>
         <div class="form-group"  class="form-inline">
-          <label for="zip-input">Zip Code:</label>
-          <input type="number" class="form-control" id="zip-input" placeholder="12345">
+          <label for="zip">Zip Code:</label>
+          <input type="number" class="form-control" name="zip" placeholder="12345">
         </div>
         <div class="form-group">
-          <label for="tel-input">Phone#:</label>
-          <input type="tel" class="form-control" id="tel-input" placeholder="8882347799">
+          <label for="tel">Phone#:</label>
+          <input type="tel" class="form-control" name="tel" placeholder="8882347799">
         </div>
         <div class="form-group">
-        <label for="ccNum-input">Credit Card#:</label>
-          <input type="number" class="form-control" id="ccNum-input" placeholder="4480330312485589">
+        <label for="ccNum">Credit Card#:</label>
+          <input type="number" class="form-control" name="ccNum" placeholder="4480330312485589">
         </div>
         <div class="form-group">
-          <label for="email-input">Email address:</label>
-          <input type="email" class="form-control" id="email-input" placeholder="name@email.com">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" name="email" placeholder="name@email.com">
         </div>
         <div class="form-group">
-          <label for="password-input">Password:</label>
-          <input type="password" class="form-control" id="password-input" placeholder="password">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" name="password" placeholder="password">
         </div>
         <br>  
         <button type="submit" class="btn btn-default">Submit</button>
@@ -120,10 +123,10 @@
     <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank"></a>
 </footer>  
 
-<div>
+<!--<div>
   <iframe src="/signin" id="iframe">
   </iframe>
-</div>
+</div>-->
 
 </body>
 </html>	
@@ -134,3 +137,42 @@ $("#signInLink").click(function(){
   document.getElementById("iframe").style.display = "block";
 });
 </script>
+
+<script>
+  $("form").submit(function(){      
+        // event.preventDefault();
+        
+    var firstName = newuser.fName.value;
+    var lastName = newuser.lName.value;
+    var address = newuser.address.value;
+    var city = newuser.city.value;
+    var state = newuser.state.value;
+    var zip = newuser.zip.value;
+    var phone = newuser.tel.value;
+    var creditCard = newuser.ccNum.value;
+    var email = newuser.email.value;
+    var password = newuser.password.value;
+
+var newUser = {
+            firstName: firstName,
+            lastName: lastName,
+            address: address,
+            city: city,
+            state: state,
+            zip: zip,
+            phone: phone,
+            creditCard: creditCard,
+            email: email,
+            password: password
+};
+        $.post("/api/newUser", newUser)
+            .done(function (data) {
+                // console.log(data);
+                // alert("Your profile has been submitted");
+            });
+              // console.log(newUser);  
+});
+</script>
+
+    <!-- Main javascript functionality -->
+    <!--<script src="assets/scripts/main.js"></script>-->
