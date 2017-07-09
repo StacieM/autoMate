@@ -109,8 +109,8 @@
       function initMap() {        
         var bounds = new google.maps.LatLngBounds;
         var markersArray = [];
-        address1Full = address1Full || "'Irvine Station, Irvine, CA";
-        address2Full = address2Full || "'Irvine Station, Irvine, CA";
+        address1Full = address1Full || "Irvine Station, Irvine, CA";
+        address2Full = address2Full || "Irvine Station, Irvine, CA";
         var origin1 = address1Full;
         // var origin2 = ;
         var destinationA = 'Irvine Station, Irvine, CA';
@@ -184,7 +184,7 @@
 
       /*FORM SUBMIT*/
       $("form").submit(function(){      
-        event.preventDefault();
+        // event.preventDefault();
 
         // fill array with recurring pickup days
         var recurringDays = [];
@@ -218,7 +218,13 @@ var vehicle = schedule.vehicle.value;
           console.log(schedule.pickup.value); // any date other than 'Today'
         }
 var pickup1 = schedule.pickup.value;
-// var pickup2 = schedule.pickup2.value;
+        if (schedule.pickup2.value === "Today") { // today's date if 'Today'
+          console.log(today);
+        }
+        else {
+          console.log(schedule.pickup2.value); // any date other than 'Today'
+        }
+var pickup2 = schedule.pickup2.value;
         
         var time1 = schedule.time.value; // pickup time
         var time2 = schedule.time2.value; // two way pickup time
@@ -292,8 +298,7 @@ var cost = ("$" + (25.00).toFixed(2));
         };
         $.post("/api/newSchedule", newSchedule)
             .done(function (data) {
-                console.log(data);
-                // alert("Your profile has been submitted");
-            });
-              // console.log(newSchedule);  
+                // console.log(data);
+        });
+        console.log(newSchedule);  
       });
