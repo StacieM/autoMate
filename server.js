@@ -16,7 +16,7 @@ var db = require("./models");
 
 
 require("./routes/html-routes.js")(app);
-//require("./routes/user-api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
 require("./routes/schedule-api-routes.js")(app);
 
 db.sequelize.sync().then(function() {
