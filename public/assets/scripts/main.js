@@ -1,4 +1,5 @@
 
+      /* GLOBAL VARIABLES */
       var d = new Date(), // get computer date
       month = d.getMonth()+1,
       day = d.getDate(),
@@ -6,17 +7,20 @@
       setMonth = year + "-" + month,
       today = month + "-" + day + "-" + year,
       pickupMin,
-      dropoffMin;
+      dropoffMin,
+      address1Full,
+      address2Full;
+
+function scheduler() {
       $("#pickup").val("Today");
       $("#pickup2").val("Today");
-
-      $(document).ready(function() {
+      // $(document).ready(function() {
         $("#cal").responsiveCalendar({
           time: setMonth // set calendar to current month
         });
         var calendar = document.getElementById("cal");
         $(".today a").attr("style", "background-color: gold");
-      });
+      // });
 
       // ONE WAY or ROUND TRIP
       $(".oneTwoWay").click(function() {
@@ -82,8 +86,7 @@
 
     /*GOOGLE MAP*/
 
-      var address1Full;
-      var address2Full;
+
       angular.module("addressApp", []);
 
       angular.module("addressApp").controller("myCtrl", function($scope) {
@@ -105,6 +108,8 @@
           }
         };
       })
+
+}      
 
       function initMap() {        
         var bounds = new google.maps.LatLngBounds;
@@ -174,17 +179,17 @@
             }
           }
         });
-      }
+}
       function deleteMarkers(markersArray) {
         for (var i = 0; i < markersArray.length; i++) {
           markersArray[i].setMap(null);
         }
         markersArray = [];
-      }
+}
 
-      /*FORM SUBMIT*/
-      $("form").submit(function(){      
-        // event.preventDefault();
+/*FORM SUBMIT*/
+$("#formSchedule").submit(function(){      
+  // event.preventDefault();
 
         // fill array with recurring pickup days
         var recurringDays = [];
@@ -270,43 +275,28 @@ var pickup2 = schedule.pickup2.value;
         console.log(dropoffMin);
 // var pickupMin
 // var dropoffMin
-var cost = ("$" + (25.00).toFixed(2));
+
+        switch (vehicle) {
+          case "economy":
+            var cost = (parseInt(dropoffMin) * 0.5); // 50 cents per minute
+          break;
+          case "midSize":
+            var cost = (parseInt(dropoffMin) * 0.6); // 60 cents per minute
+          break;
+          case "luxury":
+            var cost = (parseInt(dropoffMin) * 0.8); // 80 cents per minute
+          break;
+          case "carpool":
+            var cost = (parseInt(dropoffMin) * 0.3); // 30 cents per minute
+          break;
+        }
+        if (tripType != "oneWay") {
+          cost = "$" + (cost * 2).toFixed(2);
+        }
+        else {
+          cost = "$" + cost.toFixed(2);
+        }
         console.log(cost);
-
-
-/*NEW USER PAGE*/
-           /*var firstName = newuser.fName.value;
-             var lastName = newuser.lName.value;
-             var address = newuser.address.value;
-             var city = newuser.city.value;
-             var state = newuser.state.value;
-             var zip = newuser.zip.value;
-             var phone = newuser.tel.value;
-             var creditCard = newuser.ccNum.value;
-             var email = newuser.email.value;
-             var password = newuser.password.value;
-
-          var newUser = {
-                     firstName: firstName,
-                     lastName: lastName,
-                     address: address,
-                     city: city,
-                     state: state,
-                     zip: zip,
-                     phone: phone,
-                     creditCard: creditCard,
-                     email: email,
-                     password: password
-          };
-       $.post("/api/newUser", newUser)
-           .done(function (data) {
-               console.log(data);
-               // alert("Your profile has been submitted");
-           });
-          console.log(newUser);*/  
-
-
-
 
 
         var newSchedule = {
@@ -330,7 +320,44 @@ var cost = ("$" + (25.00).toFixed(2));
                 // console.log(data);
         });
         // console.log(newSchedule);  
-      });
+});
+
+
+
+
+
+/*NEW USER PAGE*/
+$("#formNewUser").submit(function(){
+  // event.preventDefault();
+var firstName = newuser.fName.value;
+    var lastName = newuser.lName.value;
+    var address = newuser.address.value;
+    var city = newuser.city.value;
+    var state = newuser.state.value;
+    var zip = newuser.zip.value;
+    var phone = newuser.tel.value;
+    var creditCard = newuser.ccNum.value;
+    var email = newuser.email.value;
+    var password = newuser.password.value;
+
+var newUser = {
+            firstName: firstName,
+            lastName: lastName,
+            address: address,
+            city: city,
+            state: state,
+            zip: zip,
+            phone: phone,
+            creditCard: creditCard,
+            email: email,
+            password: password
+};
+        $.post("/api/newUser", newUser)
+            .done(function (data) {
+                // console.log(data);
+            });
+            // console.log(newUser);  
+}); 
 
 
 // CONFIRMATION PAGE
