@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoMate</title>
-
+    <!-- *****AJAX***** -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- *****JQUERY***** -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
@@ -32,34 +33,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img style="margin-top: -7px;" src="assets/images/navLogo.png" alt="AM"></a>
+          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img src="assets/images/navLogo.png" alt="AM"></a>
         </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li id="signInLink"><a href="/">Sign In<span class="sr-only">(current)</span></a></li>
             <!--<li><a href="#">Sign In<span class="sr-only">(current)</span></a></li>-->
             <li><a href="/newUser">New User</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li class="active"><a href="/contact">Contact</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="/schedule">Schedule a Pick-up</a></li>
-                <!--<li role="separator" class="divider"></li>
-                <li><a href="#">Another Separated link</a></li>-->
-              </ul>
-            </li>
+            <li><a href="/schedule">Schedule a Pick-up</a></li>
+            <li class="active"><a href="/contact">Contact</a></li>
           </ul>
         </div>
     </nav>
-
-    <div>
-      <iframe src="/signin" id="iframe">
-      </iframe>
-    </div>
-
 </div>
 
 <div class="servicesInfo">
