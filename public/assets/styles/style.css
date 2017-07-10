@@ -28,10 +28,8 @@ html, body {
     color: white;
 }
 
-.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus { 
-/*change background color of active nav tabs in dropdown menu */
-    background-color: black;
-    color: white;
+.navbar-brand > img {
+    margin-top: -7px;
 }
 
 /**********FIRST BACKGROUND IMAGE ON HOME PG**********/
@@ -81,7 +79,6 @@ p {
 
 /**********FOOTER**********/
 footer { 
-    /*max-width: 1200px;*/
     margin: 0 auto;
     line-height: 4.5em;
     background-color: #37b80a;
@@ -147,8 +144,8 @@ iframe { /*contains the .modal container*/
 
 /* Close button on hover */
 .close:hover,
-.close:focus { color: #37b80a;
-    
+.close:focus { 
+    color: #37b80a;    
     cursor: pointer;
 }
 
