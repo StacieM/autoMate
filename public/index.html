@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoMate</title>
-
+    <!-- *****AJAX***** -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- *****JQUERY***** -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
@@ -19,8 +20,8 @@
 </head>
 
 <body>
+<!-- *****CONTAINER FOR NAV BAR, FIRST IMAGE ON HOME PG AND POPUP SIGN IN***** -->  
 <div class=banner> 
-
     <!-- *****NAVIGATON BAR***** -->
     <nav id="fixedNav" class="navbar navbar-default">
       <div class="container-fluid">
@@ -32,60 +33,52 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img style="margin-top: -7px;" src="assets/images/navLogo.png" alt="AM"></a>
+          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img src="assets/images/navLogo.png" alt="AM"></a>
         </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active" id="signInLink"><a href="#">Sign In<span class="sr-only">(current)</span></a></li>
             <!--<li class="active"><a href="signIn.html">Sign In<span class="sr-only">(current)</span></a></li>-->
             <li><a href="/newUser">New User</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/contact">Contact</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="/schedule">Schedule a Pick-up</a></li>
-                <!--<li role="separator" class="divider"></li>
-                <li><a href="#">Another Separated link</a></li>-->
-              </ul>
-            </li>
+            <li><a href="/schedule">Schedule a Pick-up</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
     </nav>
+    <!-- *****FIRST BACKGROUND IMAGE ON HOME PAGE***** -->
     <div class="transbox">
-       <!--  <h1>Parallax Design Template</h1>
-        <p>Scroll down</p> -->
     </div>
-
+    <!-- *****SIGN IN POPUP ON HOME PAGE***** -->
     <div>
       <iframe src="/signin" id="iframe">
       </iframe>
     </div>
-
 </div>
-
+<!-- *****CONTAINER FOR 3 TEXT/PARAGRAPHS AND 3 ADDITIONAL BACKGROUND IMAGES***** -->
 <div>
   <h2>In the near future...</h2>
   <p>driver-less cars will dominate the highways. Much like the popularity of cloud services where customers no longer own software, people will no longer own cars. They will simply order a ride whenever needed. The expense would be offset by the lack of car payment, auto insurance, vehicle maintenance and fuel costs. Car dealerships and rental car companies will be converted to driver-less car parking and service lots. Private companies will also appear offering their own spin on the driver-less car experience.</p>
 </div>
 
-<div class="imageBox"></div>
+<div class="imageBox"> 
+</div>
 
 <div>
   <h2>AutoMate is...</h2>
   <p>a driver-less car app that allows users to request and schedule rides. A user will sign up, log in, enter a location, destination and time. Vehicle options will include economy, mid-size, luxury and carpool. Users can order immediate one-way or round-trip rides and schedule future pick-ups or recurring rides for daily commute. Google Maps will be used to calculate distance and commute times for pricing. Users will also be shown a cost before clicking the SUBMIT button at which time, their order will be entered in a database and a vehicle engaged for pick-up. </p>
 </div>
 
-<div class="imageBox2"></div>
+<div class="imageBox2">  
+</div>
 
 <div>
   <h2>Once the vehicle arrives...</h2>
   <p>a txt message is sent to the customer’s phone prompting them that the vehicle has arrived and to confirm by responding to the txt with the confirmation number once they are safely in the vehicle and their seatbelt is fastened. The ride is complete once the vehicle has reached its destination address. The driver-less car will return to the service lot for refueling and maintenance.</p> 
 </div>
 
-<div class="imageBox3"></div>
+<div class="imageBox3">  
+</div>
 
 <footer>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -96,7 +89,6 @@
 </footer>
 </body>
 </html>	
-
 
 <script>
 $("#signInLink").click(function(){
