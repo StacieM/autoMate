@@ -173,6 +173,11 @@ iframe { /*contains the .modal container*/
     opacity: 0.8;
 }
 
+p {
+    padding: 10px;
+    font-weight: bold;
+}
+
 /**********HEADING & FORM MARGINS FOR CONTACT, NEW USER, SCHEDULE & CONFIRMATION PGS**********/
 .servicesInfo {
     margin-top: 70px;
