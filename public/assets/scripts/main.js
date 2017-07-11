@@ -86,7 +86,6 @@ function scheduler() {
 
     /*GOOGLE MAP*/
 
-
       angular.module("addressApp", []);
 
       angular.module("addressApp").controller("myCtrl", function($scope) {
@@ -114,13 +113,11 @@ function scheduler() {
       function initMap() {        
         var bounds = new google.maps.LatLngBounds;
         var markersArray = [];
-        address1Full = address1Full || "Irvine Station, Irvine, CA";
+        address1Full = address1Full || "Irvine City Hall, Irvine, CA";
         address2Full = address2Full || "Irvine Station, Irvine, CA";
         var origin1 = address1Full;
-        // var origin2 = ;
         var destinationA = 'Irvine Station, Irvine, CA';
         var destinationB = address2Full;
-        // var destinationB = 'In-n-out, Campus Drive, Irvine, CA';
 
         var destinationIcon = 'https://chart.googleapis.com/chart?' +
             'chst=d_map_pin_letter&chld=D|FF0000|000000';
@@ -188,8 +185,19 @@ function scheduler() {
 }
 
 /*FORM SUBMIT*/
-$("#formSchedule").submit(function(){      
+$("#formSchedule").click(function(){      
   // event.preventDefault();
+
+  // function to initial cap addresses
+  function titleCase(str) {
+     str = str.toLowerCase().split(' '); // split string into array of words
+     for(var i = 0; i < str.length; i++){ // loop through each word
+          str[i] = str[i].split(''); // split each word into array of letters
+          str[i][0] = str[i][0].toUpperCase(); // convert first letter to uppercase
+          str[i] = str[i].join(''); // convert back into a word
+     }
+     return str.join(' '); //  convert back to string
+  }
 
         // fill array with recurring pickup days
         var recurringDays = [];
@@ -210,8 +218,8 @@ var recurDays = recurringDays.join();
         }        
         console.log(schedule.passengers.value); // number of passengers
         console.log(schedule.vehicle.value); // vehicle type
-        console.log(address1Full); // pickup address
-        console.log(address2Full); // drop off address
+        console.log(titleCase(address1Full)); // pickup address
+        console.log(titleCase(address2Full)); // drop off address
 var passengers = schedule.passengers.value;
 var vehicle = schedule.vehicle.value;
 // var address1Full
@@ -253,7 +261,7 @@ var pickup2 = schedule.pickup2.value;
         if (time1 === "Now") { // create variable if pickup is 'Now'
           time1 = hours + ":" + minutes;
         }
-        if (time2 === "Now") { // create variable if two way pickup is 'Now'
+        if (time2 === "Now") { // create variable if round trip pickup is 'Now'
           time2 = hours + ":" + minutes;
         }
         time1 += ampm1; // add am/pm to pickup time
@@ -265,9 +273,9 @@ var pickup2 = schedule.pickup2.value;
             console.log(today); // today's date
           }
           else {
-            console.log(schedule.pickup2.value); // two way date
+            console.log(schedule.pickup2.value); // round trip date
           }
-          console.log(time2); // two way time
+          console.log(time2); // round trip time
         }
 // var time1
 // var time2
@@ -327,7 +335,7 @@ var pickup2 = schedule.pickup2.value;
 
 
 /*NEW USER PAGE*/
-$("#formNewUser").submit(function(){
+$("#formNewUser").click(function(){
   // event.preventDefault();
 var firstName = newuser.fName.value;
     var lastName = newuser.lName.value;
@@ -356,7 +364,7 @@ var newUser = {
             .done(function (data) {
                 // console.log(data);
             });
-            // console.log(newUser);  
+        // console.log(newUser);  
 }); 
 
 
