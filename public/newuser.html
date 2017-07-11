@@ -103,7 +103,7 @@
               required>
         </div>
         <br>  
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" id="formNewUser">Submit</button>
         <button type="reset" class="btn btn-default">Reset</button>
       </form>
     </div>  
@@ -130,20 +130,6 @@
 $("#signInLink").click(function(){
   document.getElementById("iframe").style.display = "block";
 });
-</script>
-
-<script>
-onsubmit = function(){
-  // event.preventDefault();
-  if (newuser.ccNum.value != "16") {
-  console.log("WORKING");
-  }
-  else {
-    console.log("NOT");
-  }
-
-};
-
 </script>
 
 <!-- Main javascript functionality -->

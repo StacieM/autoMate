@@ -96,11 +96,11 @@
 </html>	
 
 
-<script>
+<!--<script>
 $("#signInLink").click(function(){
   document.getElementById("iframe").style.display = "block";
 });
-</script>
+</script>-->
 
 <script>
 
@@ -110,19 +110,25 @@ var confCost=$("#confCost");
 var confCreditCard=$("#confCreditCard");
 var confAddressA=$("#confAddressA");
 var confAddressB=$("#confAddressB");
+
 function getScheduleData() { //get schedule data for time, cost, pickup/drop address
-  $.get("/api/newSchedule/", function(data) {
-    if (data) {
-      console.log(data[4]);
-      confDate.html(data[4].createdAt);
-      confCost.html(data[4].cost);
-      confAddressA.html(data[4].addressA);
-      confAddressB.html(data[4].addressB);
+  $.get("/api/newSchedule/2", function(data) {
+    console.log(data);
+    // confAddressA.html(data[4].addressA);
+    // if (data) {
+      
+      // confDate.html(data[4].createdAt);
+      // confCost.html(data[4].cost);
+      // confAddressA.html(data[4].addressA);
+      // confAddressB.html(data[4].addressB);
+
       //updating = true;
-    }
+    // }
   });
 }
+
 getScheduleData();
+
 
   // function getUserData() { //get userData for creditcard info
   //   $.get("/api/newUser/", function(data) {
