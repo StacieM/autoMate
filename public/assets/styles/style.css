@@ -149,7 +149,7 @@ iframe { /*contains the .modal container*/
     cursor: pointer;
 }
 
-/* SIGN IN CONTAINER, SIGN IN & CANCEL BUTTONS */
+/* SIGN IN CONTAINER, SIGN IN & NEW USER BUTTONS */
 #signInForm input[type=text], input[name=psw] { /*full width inputs*/ 
     background-color: #ffcc00;
     width: 97%;
@@ -160,8 +160,8 @@ iframe { /*contains the .modal container*/
     /*box-sizing: border-box;*/
 }
 
-.signInSubmitBtn {
-    background-color: #37b80a;
+.signInSubmitBtn, a.nuButton {
+    background-color: black;
     color: white;
     padding: 10px 22px;
     margin: 5px;
@@ -169,13 +169,17 @@ iframe { /*contains the .modal container*/
     width: auto;
 }
 
-.signInSubmitBtn:hover {
-    opacity: 0.8;
+a.nuButton { 
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: #37b80a;
+    text-decoration: none;
+    font-family: "Arial Narrow";
 }
 
-p {
-    padding: 10px;
-    font-weight: bold;
+.signInSubmitBtn:hover, a.nuButton:hover {
+    opacity: 0.8;
 }
 
 /**********HEADING & FORM MARGINS FOR CONTACT, NEW USER, SCHEDULE & CONFIRMATION PGS**********/
@@ -254,6 +258,7 @@ div label:nth-of-type(1) {
     margin-top: 4px
 }
 
+/**********GLOBAL BUTTONS**********/
 .btn-primary {
     background-color: black;
     border-color: #333;
