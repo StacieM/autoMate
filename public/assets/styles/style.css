@@ -199,29 +199,76 @@ p {
 .confirmationForm {
     margin: 20px;
 }
+
 /**********SCHEDULE PAGE**********/
 .address {
     width: 45%;
     min-width: 235px;
     display: inline-block;
 }
+
 div label:nth-of-type(1) {
     color: green;
     margin-top: 10px;
     margin-bottom: 0;
 }
+
 .responsive-calendar {
     border:solid 1px #ccc;
     border-radius: 3px;
     padding: 5px;
     background-color: #f2f2f2;
 }
+
 .day a {
     background-color: #fff;
 }
+
 #recurDays {
     display: none;
 }
+
 #cal2 {
     display: none;
+}
+
+#resultsTab {
+    padding: 5px;
+    text-align: center;
+    width: auto;
+    height: auto;
+    background-color: #37b80a;
+    position: fixed;
+    right: -3px;
+    top: 40%;
+    color: #fff;
+    border: solid 3px #ffcc00;
+    border-radius: 10px 0 0 10px;
+    display: none;
+}
+
+#resultsTab p {
+    padding: 0;
+    margin: 0;
+    line-height: 1.2em;
+    margin-top: 4px
+}
+
+.btn-primary {
+    background-color: black;
+    border-color: #333;
+}
+
+.btn-primary:hover {
+    background-color: green;
+}
+
+.btn-default {
+    background-color: black;
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: green;
+    color: white;
 }
