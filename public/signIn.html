@@ -11,7 +11,7 @@
 class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form id="signInForm" class="modal-content animate">
+  <form action="/schedule" id="signInForm" class="modal-content animate">
     <!-- <div class="signin-imgcontainer">
       <img src="assets/login-user-human-avatar-round-sign-512.png" alt="Avatar" class="avatar">
     </div> -->
@@ -23,7 +23,7 @@ class="close" title="Close Modal">&times;</span>
       <label><b></b></label><br>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button id="signInSubmit" class="signInSubmitBtn" type="submit">Login</button>
+      <button id="signInSubmit" class="signInSubmitBtn" type="submit" formtarget="_parent">Login</button>
       <br>
       <!--<p><a href="/newUser" target="parent">New User</a></p>-->
       <a href="/newUser" class="nuButton" target="parent">New User</a>
