@@ -52,7 +52,7 @@ h2 {
 }
 
 p {
-     padding: 0px 30px;
+     padding: 0px 30px 15px;
 }
 
 /**********ADDITIONAL BACKGROUND IMAGES ON HOME PG**********/
@@ -161,12 +161,15 @@ iframe { /*contains the .modal container*/
 }
 
 .signInSubmitBtn, a.nuButton {
-    background-color: black;
     color: white;
     padding: 10px 22px;
     margin: 5px;
     cursor: pointer;
     width: auto;
+}
+
+.signInSubmitBtn {
+    background-color: black;
 }
 
 a.nuButton { 
