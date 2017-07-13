@@ -134,14 +134,24 @@ function initMap() {
   var destinationA = 'Irvine Station, Irvine, CA';
   var destinationB = address2Full;
 
-  var destinationIcon = 'https://chart.googleapis.com/chart?' +
+  /*var destinationIcon = 'https://chart.googleapis.com/chart?' +
       'chst=d_map_pin_letter&chld=D|FF0000|000000';
   var originIcon = 'https://chart.googleapis.com/chart?' +
-      'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+      'chst=d_map_pin_letter&chld=O|FFFF00|000000';*/
+  var destinationIcon = 'assets/images/map-car-marker.png';
+  var originIcon = 'assets/images/map-house-marker.png';
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 33.656738, lng: -117.733533},
     zoom: 10,
     scrollwheel: false
+  });
+
+  // First destination AutoMate logo
+  var image = 'assets/images/map-logo-marker.png';
+  var beachMarker = new google.maps.Marker({
+    position: {lat: 33.656738, lng: -117.733533},
+    map: map,
+    icon: image
   });
 
   var geocoder = new google.maps.Geocoder;
@@ -181,7 +191,7 @@ function initMap() {
         var results = response.rows[i].elements;
         geocoder.geocode({'address': originList[i]},
             showGeocodedAddressOnMap(false));
-        for (var j = 0; j < results.length; j++) {
+      for (var j = 0; j < results.length; j++) {
           geocoder.geocode({'address': destinationList[j]},
               showGeocodedAddressOnMap(true));
           // console.log(destinationList[j]);
