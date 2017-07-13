@@ -58,7 +58,8 @@
 
 <!--RADIO BUTTONS-->
 <div class="scheduleForm">
-    <form action="/confirmation" method="get" id="formSchedule" name="schedule">
+    <!--<form action="/confirmation" method="get" id="formSchedule" name="schedule">-->
+    <form action="/confirmation" id="formSchedule" name="schedule">
         <div> <!--SCHEDULE PICK UP TIME-->
             <label>One-Way or Round-Trip:</label><br>
                 <label class="radio-inline">
@@ -138,7 +139,7 @@
             </label>
         </div>
         <!--PICK-UP & DROP-OFF ADDRESS FORM-->
-<div ng-app="addressApp" ng-controller="myCtrl">        
+<div ng-app="addressApp" ng-controller="addressCtrl">        
         <div class="address">
             <div class="form-group">
                 <label for="address-input">Pick Up Address:</label>
@@ -163,7 +164,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="state2-input" ng-model="state2Input" ng-change="addressFunc()" placeholder="CA" required>
             </div>
-        </div>     
+        </div>
 </div>
         <!--CALENDARS-->
         <div class="container" id="cal">
@@ -266,12 +267,18 @@
         </div>
         <br>
         <br>  
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" id="scheduleSubmit" class="btn btn-default">Confirm</button>
             <button type="reset" class="btn btn-default">Reset</button>
     </form>
 </div>
 
 <div id="map"></div>
+
+<div id="resultsTab">
+    <p>Total Cost:<br><span id="price">price</span></p>
+    <p>Car arrival:<br><span id="arrivalMinutes">minutes</span></p>
+    <p>Ride time:<br><span id="rideMinutes">minutes</span></p>
+</div>
 
 <footer>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
