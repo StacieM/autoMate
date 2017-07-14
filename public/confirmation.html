@@ -104,30 +104,30 @@ $("#signInLink").click(function(){
 
 <script>
 
-var updating = false;
-var confDate=$("#confDate");
-var confCost=$("#confCost");
-var confCreditCard=$("#confCreditCard");
-var confAddressA=$("#confAddressA");
-var confAddressB=$("#confAddressB");
+// var updating = false;
+// var confDate=$("#confDate");
+// var confCost=$("#confCost");
+// var confCreditCard=$("#confCreditCard");
+// var confAddressA=$("#confAddressA");
+// var confAddressB=$("#confAddressB");
 
-function getScheduleData() { //get schedule data for time, cost, pickup/drop address
-  $.get("/api/newSchedule/2", function(data) {
-    console.log(data);
-    // confAddressA.html(data[4].addressA);
-    // if (data) {
+// function getScheduleData() { //get schedule data for time, cost, pickup/drop address
+//   $.get("/api/newSchedule", function(data) {
+//     console.log(data);
+//     // confAddressA.html(data[4].addressA);
+//     // if (data) {
       
-      // confDate.html(data[4].createdAt);
-      // confCost.html(data[4].cost);
-      // confAddressA.html(data[4].addressA);
-      // confAddressB.html(data[4].addressB);
+//       // confDate.html(data[4].createdAt);
+//       // confCost.html(data[4].cost);
+//       // confAddressA.html(data[4].addressA);
+//       // confAddressB.html(data[4].addressB);
 
-      //updating = true;
-    // }
-  });
-}
+//       //updating = true;
+//     // }
+//   });
+// }
 
-getScheduleData();
+// getScheduleData();
 
 
   // function getUserData() { //get userData for creditcard info
