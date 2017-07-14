@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"name="viewport" content="width=device-width" initial-scale="1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AutoMate</title>
+
+    <!-- *****JQUERY***** -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <!-- *****BOOTSTRAP***** -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <!-- *****LOCAL STYLES AND JS LINKS***** -->
+     <!--<link rel="stylesheet" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+
+<body>
+<div> 
+
+    <!-- *****NAVIGATON BAR***** -->
+    <nav id="fixedNav" class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img src="assets/images/navLogo.png" alt="AM"></a>
+        </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li id="signInLink"><a href="#">Sign In<span class="sr-only">(current)</span></a></li>
+            <!--<li><a href="#">Sign In<span class="sr-only">(current)</span></a></li>-->
+            <li><a href="/newUser">New User</a></li>
+            <li><a href="/schedule">Schedule a Pick-up</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+    </nav>
+
+</div>
+
+<div class="servicesInfo">
+  <h1>Thank you for your purchase!<br>
+        Your ride is on the way.</h1>
+</div>
+<br>
+<div class="confirmationForm">
+<div class="panel panel-default">
+      <form>
+        <div class="form-group">
+          <label>Date of order: </label> <div id="confDate"></div>
+        </div>
+        <div class="form-group">
+          <label>Purchase amount: </label> <div id="confCost"></div>
+        </div>
+        <div class="form-group">
+          <label>Credit Card charged: </label> <div id="confCreditCard"></div>
+        </div>
+        <div class="form-group">
+          <label>Pick-up address: </label> <div id="confAddressA"></div>
+        </div>
+        <div class="form-group">
+          <label>Drop-off address: </label> <div id="confAddressB">
+        </div>
+        <br>  
+        <button type="submit" class="btn btn-default">Confirm</button>
+      </form>
+    </div>  
+  
+</div>
+
+<footer>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <a href="https://www.facebook.com/" class="fa fa-facebook" target="_blank"></a>
+    <a href="https://www.twitter.com/" class="fa fa-twitter" target="_blank"></a>
+    <a href="https://www.pinterest.com/" class="fa fa-pinterest" target="_blank"></a>
+    <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank"></a>
+</footer>  
+
+<div>
+  <iframe src="/signin" id="iframe">
+  </iframe>
+</div>
+
+</body>
+</html>	
+
+
+<!--<script>
+$("#signInLink").click(function(){
+  document.getElementById("iframe").style.display = "block";
+});
+</script>-->
+
+<script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 537b61ccb968260279b19db22f19f513b504f22a
+// var updating = false;
+// var confDate=$("#confDate");
+// var confCost=$("#confCost");
+// var confCreditCard=$("#confCreditCard");
+// var confAddressA=$("#confAddressA");
+// var confAddressB=$("#confAddressB");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 537b61ccb968260279b19db22f19f513b504f22a
+// function getScheduleData() { //get schedule data for time, cost, pickup/drop address
+//   $.get("/api/newSchedule", function(data) {
+//     console.log(data);
+//     // confAddressA.html(data[4].addressA);
+//     // if (data) {
+      
+//       // confDate.html(data[4].createdAt);
+//       // confCost.html(data[4].cost);
+//       // confAddressA.html(data[4].addressA);
+//       // confAddressB.html(data[4].addressB);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 537b61ccb968260279b19db22f19f513b504f22a
+//       //updating = true;
+//     // }
+//   });
+// }
+<<<<<<< HEAD
+// getScheduleData();
+=======
+
+// getScheduleData();
+
+
+>>>>>>> 537b61ccb968260279b19db22f19f513b504f22a
+  // function getUserData() { //get userData for creditcard info
+  //   $.get("/api/newUser/", function(data) {
+  //     if (data) {
+        
+  //       confCreditCard.html(data.creditCard)
+      
+  //     }
+  //   });
+  // }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 537b61ccb968260279b19db22f19f513b504f22a
+</script>

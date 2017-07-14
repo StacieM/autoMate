@@ -1,0 +1,36 @@
+{
+  "name": "automate",
+  "version": "1.0.0",
+  "description": "In the near future, driver-less cars will dominate the highways. Much like the popularity of cloud services where customers no longer own software, people will no longer own cars. They will simply order a ride whenever needed. The expense would be offset by the lack of car payment, auto insurance, vehicle maintenance and fuel costs. Car dealerships and rental car companies will be converted to driver-less car parking and service lots. Private companies will also appear offering their own spin on the driver-less car experience.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StacieM/autoMate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StacieM/autoMate/issues"
+  },
+  "homepage": "https://github.com/StacieM/autoMate#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "mysql": "^2.13.0",
+    "mysql2": "^1.3.5",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-sequelize": "^0.7.0",
+<<<<<<< HEAD
+    "sequelize": "^4.3.1"
+=======
+    "sequelize": "^4.2.1"
+>>>>>>> 537b61ccb968260279b19db22f19f513b504f22a
+  }
+}
