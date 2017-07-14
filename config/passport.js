@@ -21,34 +21,34 @@ module.exports = function(passport, user) {
         passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
-        function(req, email, password, done) {
+        function(req, email, password, done) {            
             var generateHash = function(password) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-            }; 
+            };           
             User.findOne({
                 where: {
                     email: email
                 }
-            }).then(function(user) {
+            }).then(function(user) {     
                 if (user)
                 {
                     return done(null, false, {
                         message: 'That email is already taken'
                     });
                 } else {
-                    var userPassword = generateHash(password);
+                    var userPassword = generateHash(password);             
                     var data =
                         {
-                            email: email,
-                            password: userPassword,
-                            firstName: req.body.firstName,
-                            lastName: req.body.lastName,
+                            firstName: req.body.fName,
+                            lastName: req.body.lName,
                             address: req.body.address,
                             city: req.body.city,
                             state: req.body.state,
                             zip: req.body.zip,
-                            phone: req.body.phone,
-                            creditCard: req.body.creditCard,
+                            phone: req.body.tel,
+                            creditCard: req.body.ccNum,
+                            email: email,
+                            password: userPassword 
                         };
                     User.create(data).then(function(newUser, created) {
                         if (!newUser) {
