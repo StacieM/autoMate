@@ -1,4 +1,5 @@
 var path = require("path");
+var authController = require('../controllers/authcontroller.js');
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -18,9 +19,20 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname + "/../public/schedule.html"));
   });
 
-   app.get("/signin", function(req, res) {
+  app.get("/signin", function(req, res) {
     res.sendFile(path.join(__dirname + "/../public/signIn.html"));
   });
 
+  app.get("/confirmation", function(req, res) {
+   res.sendFile(path.join(__dirname + "/../public/confirmation.html"));
+  });
 
 };
+
+// function isLoggedIn(req, res, next) {
+//     if (req.isAuthenticated())
+//         console.log(isLoggedIn());
+//         return next();
+//     res.redirect('/signin');
+ 
+// }
