@@ -16,6 +16,7 @@
     <!-- *****LOCAL STYLES AND JS LINKS***** -->
      <!--<link rel="stylesheet" href="assets/css/reset.css"> -->
     <link rel="stylesheet" href="assets/styles/style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 
 <body>
@@ -66,23 +67,23 @@
 <div class="panel panel-default">
       <form>
         <div class="form-group">
-          <label>Date of order:</label>
+          <label>Date of order: </label><div id="confDate"></div>
           <!-- <input type="text" class="form-control" id="fName-input" placeholder="John"> -->
         </div>
         <div class="form-group">
-          <label>Purchase amount:</label>
+          <label>Purchase amount: </label> <div id="confCost"></div>
           <!-- <input type="text" class="form-control" id="lName-input" placeholder="Doe"> -->
         </div>
         <div class="form-group">
-          <label>Credit Card charged:</label>
+          <label>Credit Card charged: </label> <div id="confCreditCard"></div>
           <!-- <input type="text" class="form-control" id="address-input" placeholder="123 First Street"> -->
         </div>
         <div class="form-group">
-          <label>Pick-up address:</label>
+          <label>Pick-up address: </label> <div id="confAddressA"></div>
           <!-- <input type="text" class="form-control" id="city-input" placeholder="City"> -->
         </div>
         <div class="form-group">
-          <label>Drop-off address:</label>
+          <label>Drop-off address: </label> <div id="confAddressB"></div>
           <!-- <input type="state" class="form-control" id="state-input" placeholder="CA"> -->
         </div>
         <br>  
@@ -108,10 +109,19 @@
 
 </body>
 </html>	
+ <script src="assets/scripts/main.js"></script>
 
 
 <script>
 $("#signInLink").click(function(){
   document.getElementById("iframe").style.display = "block";
+});
+
+$.get("/confirmation", function(response) {
+  console.log(response);
+  $("#confDate").html(response.createdAt);
+  $("#confCost").html(response.cost);
+  $("#confAddressA").html(response.addressA);
+   $("#confAddressB").html(response.addressB);
 });
 </script>

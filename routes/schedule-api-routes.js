@@ -2,12 +2,24 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    //do i need app.get?
-    // app.get("/api/newSchedule", function (req, res) {
-    //     db.Schedule.findAll({}).then(function (dbSchedule) {
-    //         res.json(dbSchedule);
-    //     });
-    // });
+    app.get("/api/newSchedule", function (req, res) {
+        db.Schedule.findAll({}).then(function (dbSchedule) {
+            res.json(dbSchedule);
+        });
+    });
+
+      // Get route for retrieving a single schedule
+  app.get("/api/newSchedule/:id", function(req, res) {
+    db.Schedule.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function(dbSchedule) {
+      res.json(dbSchedule);
+    });
+  });
+
 
     app.post("/api/newSchedule", function (req, res) {
         db.Schedule.create({
@@ -27,6 +39,7 @@ module.exports = function (app) {
             cost: req.body.cost
 
         }).then(function (dbSchedule) {
+            console.log(`\n\n\n${JSON.stringify(dbSchedule,null,3)}\n\n\n`)
             res.json(dbSchedule);
         });
     });

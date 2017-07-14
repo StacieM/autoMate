@@ -64,7 +64,8 @@
 
 <!--RADIO BUTTONS-->
 <div class="scheduleForm">
-    <form action="/confirmation" method="post" name="schedule">
+    <form action="/confirmation" method="get" name="schedule">
+    <!--<form name="schedule">-->
         <div> <!--SCHEDULE PICK UP TIME-->
             <label>One-Way or Round-Trip:</label><br>
                 <label class="radio-inline">
@@ -176,7 +177,7 @@
             <label>Pick up</label>
             <div class="responsive-calendar">
                 <div class="controls">
-                    <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
+                    <a class="pull-left" n-go="prev"><div class="btn btn-primary">Prev</div></a>
                     <h4><span data-head-year></span> <span data-head-month></span></h4>
                     <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
                 </div>
@@ -272,7 +273,7 @@
         </div>
         <br>
         <br>  
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" id="scheduleSubmit" class="btn btn-default">Submit</button>
             <button type="reset" class="btn btn-default">Reset</button>
     </form>
 </div>
