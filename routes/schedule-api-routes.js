@@ -37,8 +37,8 @@ module.exports = function (app) {
             addressB: req.body.addressB,
             dayB: req.body.dayB,
             timeB: req.body.timeB,
-            pickUpMin: req.body.pickUpMin,
-            dropOffMin: req.body.dropOffMin,
+            pickUpMin: req.body.pickupMin,
+            dropOffMin: req.body.dropoffMin,
             cost: req.body.cost
 
         }).then(function (dbSchedule) {
