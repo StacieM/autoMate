@@ -395,37 +395,38 @@ var pickup2 = schedule.pickup2.value;
 
 
 /*NEW USER PAGE*/
-$("#formNewUser").click(function(){
+// $("#formNewUser").click(function(){
   // event.preventDefault();
-var firstName = newuser.fName.value;
-    var lastName = newuser.lName.value;
-    var address = newuser.address.value;
-    var city = newuser.city.value;
-    var state = newuser.state.value;
-    var zip = newuser.zip.value;
-    var phone = newuser.tel.value;
-    var creditCard = newuser.ccNum.value;
-    var email = newuser.email.value;
-    var password = newuser.password.value;
+// $("form.newuser").submit(function(){
+//     var firstName = newuser.fName.value;
+//     var lastName = newuser.lName.value;
+//     var address = newuser.address.value;
+//     var city = newuser.city.value;
+//     var state = newuser.state.value;
+//     var zip = newuser.zip.value;
+//     var phone = newuser.tel.value;
+//     var creditCard = newuser.ccNum.value;
+//     var email = newuser.email.value;
+//     var password = newuser.password.value;
 
-var newUser = {
-            firstName: firstName,
-            lastName: lastName,
-            address: address,
-            city: city,
-            state: state,
-            zip: zip,
-            phone: phone,
-            creditCard: creditCard,
-            email: email,
-            password: password
-};
-        $.post("/api/newUser", newUser)
-            .done(function (data) {
+// var newUser = {
+//             firstName: firstName,
+//             lastName: lastName,
+//             address: address,
+//             city: city,
+//             state: state,
+//             zip: zip,
+//             phone: phone,
+//             creditCard: creditCard,
+//             email: email,
+//             password: password
+// };
+        // $.post("/api/newUser", newUser)
+        //     .done(function (data) {
                 // console.log(data);
-            });
+            // });
         // console.log(newUser);  
-}); 
+// }); 
 
 
 // CONFIRMATION PAGE
