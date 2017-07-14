@@ -28,10 +28,8 @@ html, body {
     color: white;
 }
 
-.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus { 
-/*change background color of active nav tabs in dropdown menu */
-    background-color: black;
-    color: white;
+.navbar-brand > img {
+    margin-top: -7px;
 }
 
 /**********FIRST BACKGROUND IMAGE ON HOME PG**********/
@@ -54,7 +52,7 @@ h2 {
 }
 
 p {
-     padding: 0px 30px;
+     padding: 0px 30px 15px;
 }
 
 /**********ADDITIONAL BACKGROUND IMAGES ON HOME PG**********/
@@ -81,7 +79,6 @@ p {
 
 /**********FOOTER**********/
 footer { 
-    /*max-width: 1200px;*/
     margin: 0 auto;
     line-height: 4.5em;
     background-color: #37b80a;
@@ -147,12 +144,12 @@ iframe { /*contains the .modal container*/
 
 /* Close button on hover */
 .close:hover,
-.close:focus { color: #37b80a;
-    
+.close:focus { 
+    color: #37b80a;    
     cursor: pointer;
 }
 
-/* SIGN IN CONTAINER, SIGN IN & CANCEL BUTTONS */
+/* SIGN IN CONTAINER, SIGN IN & NEW USER BUTTONS */
 #signInForm input[type=text], input[name=psw] { /*full width inputs*/ 
     background-color: #ffcc00;
     width: 97%;
@@ -163,8 +160,7 @@ iframe { /*contains the .modal container*/
     /*box-sizing: border-box;*/
 }
 
-.signInSubmitBtn {
-    background-color: #37b80a;
+.signInSubmitBtn, a.nuButton {
     color: white;
     padding: 10px 22px;
     margin: 5px;
@@ -172,7 +168,20 @@ iframe { /*contains the .modal container*/
     width: auto;
 }
 
-.signInSubmitBtn:hover {
+.signInSubmitBtn {
+    background-color: black;
+}
+
+a.nuButton { 
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: #37b80a;
+    text-decoration: none;
+    font-family: "Arial Narrow";
+}
+
+.signInSubmitBtn:hover, a.nuButton:hover {
     opacity: 0.8;
 }
 
@@ -197,29 +206,77 @@ iframe { /*contains the .modal container*/
 .confirmationForm {
     margin: 20px;
 }
+
 /**********SCHEDULE PAGE**********/
 .address {
     width: 45%;
     min-width: 235px;
     display: inline-block;
 }
+
 div label:nth-of-type(1) {
     color: green;
     margin-top: 10px;
     margin-bottom: 0;
 }
+
 .responsive-calendar {
     border:solid 1px #ccc;
     border-radius: 3px;
     padding: 5px;
     background-color: #f2f2f2;
 }
+
 .day a {
     background-color: #fff;
 }
+
 #recurDays {
     display: none;
 }
+
 #cal2 {
     display: none;
+}
+
+#resultsTab {
+    padding: 5px;
+    text-align: center;
+    width: auto;
+    height: auto;
+    background-color: #37b80a;
+    position: fixed;
+    right: -3px;
+    top: 40%;
+    color: #fff;
+    border: solid 3px #ffcc00;
+    border-radius: 10px 0 0 10px;
+    display: none;
+}
+
+#resultsTab p {
+    padding: 0;
+    margin: 0;
+    line-height: 1.2em;
+    margin-top: 4px
+}
+
+/**********GLOBAL BUTTONS**********/
+.btn-primary {
+    background-color: black;
+    border-color: #333;
+}
+
+.btn-primary:hover {
+    background-color: green;
+}
+
+.btn-default {
+    background-color: black;
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: green;
+    color: white;
 }

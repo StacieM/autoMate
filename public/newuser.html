@@ -5,10 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoMate</title>
-
     <!-- *****AJAX***** -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <!-- *****JQUERY***** -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
@@ -22,8 +20,8 @@
 </head>
 
 <body>
+<!-- *****CONTAINER FOR NAV BAR***** -->  
 <div> 
-
     <!-- *****NAVIGATON BAR***** -->
     <nav id="fixedNav" class="navbar navbar-default">
       <div class="container-fluid">
@@ -35,29 +33,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img style="margin-top: -7px;" src="assets/images/navLogo.png" alt="AM"></a>
+          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img src="assets/images/navLogo.png" alt="AM"></a>
         </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li id="signInLink"><a href="#">Sign In<span class="sr-only">(current)</span></a></li>
-            <!--<li><a href="#">Sign In<span class="sr-only">(current)</span></a></li>-->
+            <!--<li id="signInLink"><a href="#">Sign In<span class="sr-only">(current)</span></a></li>-->
             <li class="active"><a href="/newUser">New User</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/contact">Contact</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="/schedule">Schedule a Pick-up</a></li>
-                <!--<li role="separator" class="divider"></li>
-                <li><a href="#">Another Separated link</a></li>-->
-              </ul>
-            </li>
+            <!--<li><a href="/schedule">Schedule a Pick-up</a></li>-->
+            <li><a href="/contact">Contact</a></li>            
           </ul>
         </div>
     </nav>
-
 </div>
 
 <div class="servicesInfo">
@@ -66,46 +53,54 @@
 
 <div class="newuserForm">
 <div class="panel panel-default">
-      <form action="/schedule" method="get" name="newuser">
+      <form action="api/newUser" method="POST" name="newuser">
         <div class="form-group">
           <label for="fName">First Name:</label>
-          <input type="text" class="form-control" name="fName" placeholder="John">
+          <input type="text" class="form-control" name="fName" placeholder="John" required>
         </div>
         <div class="form-group">
           <label for="lName">Last Name:</label>
-          <input type="text" class="form-control" name="lName" placeholder="Doe">
+          <input type="text" class="form-control" name="lName" placeholder="Doe" required>
         </div>
         <div class="form-group">
           <label for="address">Street Address:</label>
-          <input type="text" class="form-control" name="address" placeholder="123 First Street">
+          <input type="text" class="form-control" name="address" placeholder="123 First Street" required>
         </div>
         <div class="form-group">
           <label for="city">City:</label>
-          <input type="text" class="form-control" name="city" placeholder="City">
+          <input type="text" class="form-control" name="city" placeholder="City" required>
         </div>
         <div class="form-group">
           <label for="state">State:</label>
-          <input type="state" class="form-control" name="state" placeholder="CA">
+          <input type="state" class="form-control" name="state" placeholder="CA" pattern="[A-Za-z]{2}" 
+              title="must be a 2 letter state code" required>
         </div>
         <div class="form-group"  class="form-inline">
           <label for="zip">Zip Code:</label>
-          <input type="number" class="form-control" name="zip" placeholder="12345">
+          <input type="text" class="form-control" name="zip" placeholder="12345" pattern="\d{5}" 
+              title="must be 5 digit zip code" required>
         </div>
         <div class="form-group">
           <label for="tel">Phone#:</label>
-          <input type="tel" class="form-control" name="tel" placeholder="8882347799">
+          <input type="tel" class="form-control" name="tel" placeholder="8882347799" pattern="\d{10}" 
+              title="must be 10 digits" required>
         </div>
         <div class="form-group">
         <label for="ccNum">Credit Card#:</label>
-          <input type="number" class="form-control" name="ccNum" placeholder="4480330312485589">
+          <input type="text" class="form-control" name="ccNum" placeholder="4480330312485589" 
+              title="must be 16 digits" required>
         </div>
         <div class="form-group">
           <label for="email">Email address:</label>
-          <input type="email" class="form-control" name="email" placeholder="name@email.com">
+          <input type="email" class="form-control" name="email" placeholder="name@email.com" 
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" class="form-control" name="password" placeholder="password">
+          <input type="password" class="form-control" name="password" placeholder="must contain six or more characters" 
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+              required>
         </div>
         <br>  
         <button type="submit" class="btn btn-default">Submit</button>
@@ -131,48 +126,11 @@
 </body>
 </html>	
 
-
 <script>
 $("#signInLink").click(function(){
   document.getElementById("iframe").style.display = "block";
 });
 </script>
 
-<script>
-  $("form").submit(function(){      
-        // event.preventDefault();
-        
-    var firstName = newuser.fName.value;
-    var lastName = newuser.lName.value;
-    var address = newuser.address.value;
-    var city = newuser.city.value;
-    var state = newuser.state.value;
-    var zip = newuser.zip.value;
-    var phone = newuser.tel.value;
-    var creditCard = newuser.ccNum.value;
-    var email = newuser.email.value;
-    var password = newuser.password.value;
-
-var newUser = {
-            firstName: firstName,
-            lastName: lastName,
-            address: address,
-            city: city,
-            state: state,
-            zip: zip,
-            phone: phone,
-            creditCard: creditCard,
-            email: email,
-            password: password
-};
-        $.post("/api/newUser", newUser)
-            .done(function (data) {
-                // console.log(data);
-                // alert("Your profile has been submitted");
-            });
-              // console.log(newUser);  
-});
-</script>
-
-    <!-- Main javascript functionality -->
-    <!--<script src="assets/scripts/main.js"></script>-->
+<!-- Main javascript functionality -->
+<script src="assets/scripts/main.js"></script>

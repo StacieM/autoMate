@@ -1,30 +1,29 @@
-var db = require("../models");
+// var db = require("../models");
+var authController = require('../controllers/authcontroller.js');
 
-module.exports = function (app) {
+module.exports = function (app, passport) {
+    app.get('/api/newUser', authController.signup);
 
-    //do i need app.get?
-    app.get("/api/newUser", function (req, res) {
-        db.User.findAll({}).then(function (dbUser) {
-            res.json(dbUser);
-        });
-    });
+    app.post('/api/newUser', passport.authenticate('local-signup', {
+        successRedirect: '/schedule',
+        failureRedirect: '/newUser'
+    }));
 
-    app.post("/api/newUser", function (req, res) {
-        db.User.create({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            address: req.body.address,
-            city: req.body.city,
-            state: req.body.state,
-            zip: req.body.zip,
-            phone: req.body.phone,
-            creditCard: req.body.creditCard,
-            email: req.body.email,
-            password: req.body.password
+    app.get('/api/signin', authController.signin);
 
-        }).then(function (dbUser) {
-            res.json(dbUser);
-        });
-    });
+    app.post('/api/signin', passport.authenticate('local-signin', {
+        successRedirect: '/schedule',
+        failureRedirect: '/signin'
+    }))
 
+    app.get('/schedule', isLoggedIn, authController.schedule);
+
+    app.get('/logout', authController.logout);
 };
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        console.log(isLoggedIn());
+        return next();
+    res.redirect('/signin');
+}
