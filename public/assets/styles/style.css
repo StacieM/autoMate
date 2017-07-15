@@ -203,7 +203,7 @@ a.nuButton {
 }
 
 .confirmationForm { 
-    margin: 0 auto -180px; /*used for sticky footer*/
+    margin: 0 auto -170px; /*used for sticky footer*/
     min-height: 100%; /*used for sticky footer*/
     overflow: hidden; /*used for sticky footer*/    
 }

@@ -5,14 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoMate</title>    
+
     <!-- *****AJAX***** -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- *****JQUERY***** -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
     <!-- *****BOOTSTRAP***** -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
      <!-- Calendar scripts -->
@@ -26,34 +29,35 @@
 <body>
 
 <!-- *****CONTAINER FOR NAV BAR***** -->     
-<div>
+<header role="banner">
     <!-- *****NAVIGATON BAR***** -->
-    <nav id="fixedNav" class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img src="assets/images/navLogo.png" alt="AM"></a>
-        </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <!-- <li id="signInLink"><a href="#">Sign In<span class="sr-only">(current)</span></a></li>
-            <li><a href="/newUser">New User</a></li> -->
-            <li class="active"><a href="/schedule">Schedule a Pick-up</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
+    <nav id="fixedNav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img src="assets/images/navLogo.png" alt="AM"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/schedule">Schedule a Pick-up</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+
         </div>
     </nav>
-</div>
+
+</header>
 
 <div class="servicesInfo">
-  <h1>Schedule a Pick-up</h1>
+    <h1>Schedule a Pick-up</h1>
 </div>
 
 <!--RADIO BUTTONS-->
@@ -246,7 +250,7 @@
              <div>
                 <label>Return Time</label>
                 <select name="time2">
-                    <option value="Now">Now</option>
+                    <option value="">&nbsp;</option>
                     <option value="1:00">1:00</option>
                     <option value="2:00">2:00</option>
                     <option value="3:00">3:00</option>
@@ -267,7 +271,7 @@
         </div>
         <br>
         <br>  
-            <button type="submit" id="scheduleSubmit" class="btn btn-default">Confirm</button>
+            <button type="submit" id="scheduleSubmit" class="btn btn-default">Submit</button>
             <button type="reset" class="btn btn-default">Reset</button>
     </form>
 </div>
@@ -288,15 +292,8 @@
     <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank"></a>
 </footer>  
 
-<!-- <div>
-  <iframe src="/signin" id="iframe">
-  </iframe>
-</div> -->
-
 </body>
 </html>	
-
-
 
 
 <script>

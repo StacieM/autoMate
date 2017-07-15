@@ -40,8 +40,6 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li id="signInLink"><a href="#">Sign In<span class="sr-only">(current)</span></a></li>
-                <li><a href="/contact">Contact</a></li>
               </ul>
             </div>
 
@@ -81,20 +79,3 @@
 
 </body>
 </html>	
-
-
-<script>
-var updating = false;
-var confDate=$("#confDate");
-var confCost=$("#confCost");
-var confCreditCard=$("#confCreditCard");
-var confAddressA=$("#confAddressA");
-var confAddressB=$("#confAddressB");
-
-function getScheduleData() { //get schedule data for time, cost, pickup/drop address
-  $.get("/api/newSchedule/2", function(data) {
-    console.log(data);    
-  });
-}
-getScheduleData();
-</script>

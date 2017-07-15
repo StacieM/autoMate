@@ -14,7 +14,7 @@ module.exports = function (app, passport) {
     app.post('/api/signin', passport.authenticate('local-signin', {
         successRedirect: '/schedule',
         failureRedirect: '/signin'
-    }))
+    }));
 
     app.get('/schedule', isLoggedIn, authController.schedule);
 

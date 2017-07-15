@@ -16,13 +16,12 @@ module.exports = function (sequelize, DataTypes) {
         cost:DataTypes.STRING
     });
             
-               Schedule.associate= function (models) {
-                    // A User (foreignKey) is required or a Schedule can't be made
-                    Schedule.belongsTo(models.User, {
-                        foreignKey: "UserID"
-                    });
-                }
-        
+   Schedule.associate = function (models) {
+        // A User (foreignKey) is required or a Schedule can't be made
+        Schedule.belongsTo(models.User, {
+            foreignKey: "UserID"
+        });
+    }       
         
     return Schedule;
 };

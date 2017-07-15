@@ -28,7 +28,11 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-sequelize": "^0.7.0",
+<<<<<<< HEAD
     "path": "^0.12.7",
     "sequelize": "^4.3.1"
+=======
+    "sequelize": "^4.2.1"
+>>>>>>> d78dca7cccd1ce8e789230b80242407ad542c723
   }
 }
