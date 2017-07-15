@@ -5,97 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoMate</title>
+
     <!-- *****AJAX***** -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- *****JQUERY***** -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
     <!-- *****BOOTSTRAP***** -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  
+    
+    <!-- *****PREVENT FAVICON REQUESTS***** -->    
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    
     <!-- *****LOCAL STYLES AND JS LINKS***** -->
      <!--<link rel="stylesheet" href="assets/css/reset.css"> -->
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
 <body>
-<div> 
-
+<header role="banner">
     <!-- *****NAVIGATON BAR***** -->
-    <nav id="fixedNav" class="navbar navbar-default">
+    <nav id="fixedNav" class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img src="assets/images/navLogo.png" alt="AM"></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" class="brandInitials" class="navLogo" href="/"><img src="assets/images/navLogo.png" alt="AM"></a>
         </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li id="signInLink"><a href="/">Sign In<span class="sr-only">(current)</span></a></li>
-            <!--<li><a href="#">Sign In<span class="sr-only">(current)</span></a></li>-->
-            <!--<li><a href="/newUser">New User</a></li>
-            <li><a href="/schedule">Schedule a Pick-up</a></li>-->
             <li class="active"><a href="/contact">Contact</a></li>
           </ul>
         </div>
+
+      </div>
     </nav>
-</div>
+
+</header>
 
 <div class="servicesInfo">
-  <h1>Contact Us</h1>
+    <h1>Contact Us    
+    </h1>
 </div>
 
 <div class="contactForm">
-<div class="panel panel-default">
+  <div class="panel panel-default">
       <form>
-        <div class="form-group">
-          <label for="fName-input">First Name:</label>
-          <input type="text" class="form-control" id="fName-input">
-        </div>
-        <div class="form-group">
-          <label for="lName-input">Last Name:</label>
-          <input type="text" class="form-control" id="lName-input">
-        </div>
-        <div class="form-group">
-          <label for="email-input">Email address:</label>
-          <input type="email" class="form-control" id="email-input">
-        </div>
-        <div class="form-group">
-          <label for="tel-input">Phone#:</label>
-          <input type="tel" class="form-control" id="tel-input">
-        </div>
-        <div class="form-group">
-          <label for="notes-input-input">Notes:</label>
-          <input type="text" class="form-control" id="notes-input">
-        </div><br>  
-        <button type="submit" class="btn btn-default">Submit</button>
-        <button type="reset" class="btn btn-default">Reset</button>
+          <div class="form-group">
+              <label for="fName-input">First Name:</label>
+              <input type="text" class="form-control" id="fName-input">
+          </div>
+          <div class="form-group">
+              <label for="lName-input">Last Name:</label>
+              <input type="text" class="form-control" id="lName-input">
+          </div>
+          <div class="form-group">
+              <label for="email-input">Email address:</label>
+              <input type="email" class="form-control" id="email-input">
+          </div>
+          <div class="form-group">
+              <label for="tel-input">Phone#:</label>
+              <input type="tel" class="form-control" id="tel-input">
+          </div>
+          <div class="form-group">
+              <label for="notes-input-input">Notes:</label>
+              <input type="text" class="form-control" id="notes-input">
+          </div>
+          <br>  
+          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="reset" class="btn btn-default">Reset</button>
       </form>
-    </div>  
-  
+  </div>    
 </div>
 
 <footer>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <a href="https://www.facebook.com/" class="fa fa-facebook" target="_blank"></a>
-    <a href="https://www.twitter.com/" class="fa fa-twitter" target="_blank"></a>
-    <a href="https://www.pinterest.com/" class="fa fa-pinterest" target="_blank"></a>
-    <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank"></a>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <a href="https://www.facebook.com/" class="fa fa-facebook" target="_blank"></a>
+      <a href="https://www.twitter.com/" class="fa fa-twitter" target="_blank"></a>
+      <a href="https://www.pinterest.com/" class="fa fa-pinterest" target="_blank"></a>
+      <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank"></a>
 </footer>  
    
 </body>
 </html>	
-
-
-<script>
-$("#signInLink").click(function(){
-  document.getElementById("iframe").style.display = "block";
-});
-</script>
