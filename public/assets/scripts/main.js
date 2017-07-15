@@ -19,6 +19,7 @@ cost;
 
 document.onreset = function(){
     $("#resultsTab").slideUp();
+    $("#resultsTab p:nth-of-type(2)").show();
     tripType = "",
     recurring = "",
     recurDays = "",
@@ -107,18 +108,25 @@ function scheduler() {
   angular.module("addressApp", []);
   angular.module("addressApp").controller("addressCtrl", function($scope) {
       $scope.addressFunc = function() {
-      var address1 = $scope.addressInput;
-      var city1 = $scope.cityInput;
-      var state1 = $scope.stateInput;
-      var address2 = $scope.address2Input;
-      var city2 = $scope.city2Input;
-      var state2 = $scope.state2Input;
-      if ($scope.addressInput && $scope.cityInput && $scope.stateInput && $scope.address2Input && $scope.city2Input && $scope.state2Input) {
-        address1Full = address1 + ", " + city1 + ", " + state1;
-        address2Full = address2 + ", " + city2 + ", " + state2;
-        initMap();
-      }
-    };
+        var address1 = $scope.addressInput;
+        var city1 = $scope.cityInput;
+        var state1 = $scope.stateInput;
+        var address2 = $scope.address2Input;
+        var city2 = $scope.city2Input;
+        var state2 = $scope.state2Input;
+        if ($scope.addressInput && $scope.cityInput && $scope.stateInput && $scope.address2Input && $scope.city2Input && $scope.state2Input) {
+          address1Full = address1 + ", " + city1 + ", " + state1;
+          address2Full = address2 + ", " + city2 + ", " + state2;
+          initMap();
+        }
+      };
+
+
+      $scope.reset = function() {
+        $scope.addressFunc = {};
+      };
+
+
   });
 }
 
@@ -134,14 +142,24 @@ function initMap() {
   var destinationA = 'Irvine Station, Irvine, CA';
   var destinationB = address2Full;
 
-  var destinationIcon = 'https://chart.googleapis.com/chart?' +
-      'chst=d_map_pin_letter&chld=D|FF0000|000000';
-  var originIcon = 'https://chart.googleapis.com/chart?' +
-      'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+  // var destinationIcon = 'https://chart.googleapis.com/chart?' +
+  //     'chst=d_map_pin_letter&chld=D|FF0000|000000';
+  // var originIcon = 'https://chart.googleapis.com/chart?' +
+  //     'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+  var destinationIcon = 'assets/images/map-car-marker.png';
+  var originIcon = 'assets/images/map-house-marker.png';
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 33.656738, lng: -117.733533},
     zoom: 10,
     scrollwheel: false
+  });
+
+  // First destination AutoMate logo
+  var image = 'assets/images/map-logo-marker.png';
+  var beachMarker = new google.maps.Marker({
+    position: {lat: 33.656738, lng: -117.733533},
+    map: map,
+    icon: image
   });
 
   var geocoder = new google.maps.Geocoder;
@@ -189,8 +207,8 @@ function initMap() {
         pickupMin = results[0].duration.text;
         dropoffMin = results[1].duration.text;
 
-        console.log(pickupMin);
-        console.log(dropoffMin); // this could be '1 day 3 hours', '2 hours 15 min' or '20 min'
+        // console.log(pickupMin);
+        // console.log(dropoffMin); // this could be '1 day 3 hours', '2 hours 15 min' or '20 min'
       }
     }
   });
@@ -207,16 +225,6 @@ function deleteMarkers(markersArray) {
 
 /********** RESULTS TAB ***********/
 $("#cal").click(function(){
-  // function to initial cap addresses
-  function titleCase(str) {
-     str = str.toLowerCase().split(' '); // split string into array of words
-     for(var i = 0; i < str.length; i++){ // loop through each word
-          str[i] = str[i].split(''); // split each word into array of letters
-          str[i][0] = str[i][0].toUpperCase(); // convert first letter to uppercase
-          str[i] = str[i].join(''); // convert back into a word
-     }
-     return str.join(' '); //  convert back to string
-  }
 
   // fill array with recurring pickup days
   var recurringDays = [];        
@@ -225,30 +233,21 @@ $("#cal").click(function(){
       recurringDays.push(schedule.recurDays[i].value);
     }
   }
-  console.log(schedule.oneTwoWay.value); // one way or round trip choice
-  console.log(schedule.recurring.value); // recurring pickup choice
-tripType = schedule.oneTwoWay.value;
-recurring = schedule.recurring.value;        
+  tripType = schedule.oneTwoWay.value; // set one way or round trip variable
+  recurring = schedule.recurring.value; // set recurring pickup variable  
   if (schedule.recurring.value != "no") { // recurring days if selected
-    console.log(recurringDays);
-recurDays = recurringDays.join();
-    console.log(recurDays);
-  }        
-  console.log(schedule.passengers.value); // number of passengers
-  console.log(schedule.vehicle.value); // vehicle type
-  console.log(titleCase(address1Full)); // pickup address
-  console.log(titleCase(address2Full)); // drop off address
-passengers = schedule.passengers.value;
-vehicle = schedule.vehicle.value;
+    recurDays = recurringDays.join(); // create string of recurring days
+  }
+  passengers = schedule.passengers.value; // set number of passengers variable
+  vehicle = schedule.vehicle.value; // set vehicle type variable
 
-  console.log(pickupMin);
-  console.log(dropoffMin); // this can be '1 day 3 hours 20 min'
+  // console.log(dropoffMin); // this can be '1 day 3 hours', '12 hours 20 min' or '5 min'
 
   // Calculate cost
   var dhmArray = [];
-  dropoffMin = dropoffMin.split(" "); // make array of dropoffMin
-  for (var i=0; i<dropoffMin.length; i++) {
-    var number = parseInt(dropoffMin[i]); // convert to number to turn day,days,hour,hours,min into NaN
+  dropoffMinCalc = dropoffMin.split(" "); // make array of dropoffMin
+  for (var i=0; i<dropoffMinCalc.length; i++) {
+    var number = parseInt(dropoffMinCalc[i]); // convert to number to turn day,days,hour,hours,min into NaN
     if (!isNaN(number)) { // find numbers
       dhmArray.push(number); // push numbers into array
     }
@@ -292,11 +291,14 @@ vehicle = schedule.vehicle.value;
   else {
     cost = "$" + cost.toFixed(2);
   }
-  console.log(cost);
+  // console.log(cost);
 
   // Populate results tab
   $("#resultsTab").slideDown();
   $("#price").html(cost);
+  if (schedule.time.value != "Now") {
+    $("#resultsTab p:nth-of-type(2)").hide();
+  }
   $("#arrivalMinutes").html(pickupMin);
   $("#rideMinutes").html(dropoffMin);
 });
@@ -306,23 +308,36 @@ vehicle = schedule.vehicle.value;
 
 
 /* SCHEDULE FORM SUBMIT */
-$("#scheduleSubmit").click(function(){      
+$("#formSchedule").submit(function(){      
   // event.preventDefault();
-    
+
+  // function to initial cap addresses
+  function titleCase(str) {
+    str = str.toLowerCase().split(' '); // split string into array of words
+    for(var i = 0; i < str.length; i++){ // loop through each word
+        str[i] = str[i].split(''); // split each word into array of letters
+        str[i][0] = str[i][0].toUpperCase(); // convert first letter to uppercase
+        str[i] = str[i].join(''); // convert back into a word
+    }
+    return str.join(' '); //  convert back to string
+  }
+  address1Full = titleCase(address1Full);
+  address2Full = titleCase(address2Full);
+
+  // Set the pickup1 date accounting for default of "Today"
   if (schedule.pickup.value === "Today") { // today's date if 'Today'
-    console.log(today);
+    var pickup1 = month + "-" + day + "-" + year;
   }
   else {
-    console.log(schedule.pickup.value); // any date other than 'Today'
+    var pickup1 = schedule.pickup.value; // any date other than 'Today'
   }
-var pickup1 = schedule.pickup.value;
+  // Set the pickup2 date accounting for default of "Today"
   if (schedule.pickup2.value === "Today") { // today's date if 'Today'
-    console.log(today);
+    var pickup2 = month + "-" + day + "-" + year;
   }
   else {
-    console.log(schedule.pickup2.value); // any date other than 'Today'
+    var pickup2 = schedule.pickup2.value; // any date other than 'Today'
   }
-var pickup2 = schedule.pickup2.value;
   
   var time1 = schedule.time.value; // pickup time
   var time2 = schedule.time2.value; // two way pickup time
@@ -352,18 +367,7 @@ var pickup2 = schedule.pickup2.value;
   }
   time1 += ampm1; // add am/pm to pickup time
   time2 += ampm2; // add am/pm to drop off time
-  console.log(time1); // pickup time
-
-  if (schedule.oneTwoWay.value != "oneWay") { // if 'Round Trip' selected
-    if (schedule.pickup2.value === "Today") { // if two way is 'Today'
-      console.log(today); // today's date
-    }
-    else {
-      console.log(schedule.pickup2.value); // round trip date
-    }
-    console.log(time2); // round trip time
-  }
-
+  // console.log(time1); // pickup time
 
   var newSchedule = {
       trip: tripType,
@@ -383,76 +387,6 @@ var pickup2 = schedule.pickup2.value;
   };
   $.post("/api/newSchedule", newSchedule)
       .done(function (data) {
-        // This is where we get 
-          console.log("\n\n\n" + data.id + "\n\n\n");
-          $.get("/api/newSchedule/" + data.id).done(function(data){});
   });
   // console.log(newSchedule);  
 });
-
-
-
-
-
-/*NEW USER PAGE*/
-// $("#formNewUser").click(function(){
-  // event.preventDefault();
-// $("form.newuser").submit(function(){
-//     var firstName = newuser.fName.value;
-//     var lastName = newuser.lName.value;
-//     var address = newuser.address.value;
-//     var city = newuser.city.value;
-//     var state = newuser.state.value;
-//     var zip = newuser.zip.value;
-//     var phone = newuser.tel.value;
-//     var creditCard = newuser.ccNum.value;
-//     var email = newuser.email.value;
-//     var password = newuser.password.value;
-
-// var newUser = {
-//             firstName: firstName,
-//             lastName: lastName,
-//             address: address,
-//             city: city,
-//             state: state,
-//             zip: zip,
-//             phone: phone,
-//             creditCard: creditCard,
-//             email: email,
-//             password: password
-// };
-        // $.post("/api/newUser", newUser)
-        //     .done(function (data) {
-                // console.log(data);
-            // });
-        // console.log(newUser);  
-// }); 
-
-
-// CONFIRMATION PAGE
-// var confDate=$("#confDate");
-// var confCost=$("#confCost");
-// var confCreditCard=$("#confCreditCard");
-// var confAddressA=$("#confAddressA");
-// var confAddressB=$("#confAddressB");
-//  function getScheduleData() { //get schedule data for time, cost, pickup/drop address
-//     $.get("/api/newSchedule/", function(data) {
-//       if (data) {
-//         console.log(data[4]);
-//         confDate.html(data[4].createdAt);
-//         confCost.html(data[4].cost);
-//         confAddressA.html(data[4].addressA);
-//         confAddressB.html(data[4].addressB);
-//         //updating = true;
-//       }
-//     });
-//   }
-// getScheduleData();
-  // function getUserData() { //get userData for creditcard info
-  //   $.get("/api/newUser/", function(data) {
-  //     if (data) {
-        
-  //       confCreditCard.html(data.creditCard)
-      
-  //     }
-  //   });
