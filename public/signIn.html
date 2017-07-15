@@ -1,39 +1,25 @@
-<!-- *****LOCAL STYLES AND JS LINKS***** -->
-    <!--<link rel="stylesheet" href="assets/css/reset.css"> -->
-    <link rel="stylesheet" href="assets/styles/style.css">
-
-<!-- Button to open the modal login form -->
-<!--<button onclick="document.getElementById('id01').style.display='block'">Login</button>-->
+ <!-- *****LOCAL STYLES AND JS LINKS***** -->
+<!--<link rel="stylesheet" href="assets/css/reset.css"> -->
+<link rel="stylesheet" href="assets/styles/style.css">
 
 <!-- The Modal -->
 <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" 
-class="close" title="Close Modal">&times;</span>
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
-  <!-- Modal Content -->
-  <form action="/schedule" id="signInForm" class="modal-content animate">
-    <!-- <div class="signin-imgcontainer">
-      <img src="assets/login-user-human-avatar-round-sign-512.png" alt="Avatar" class="avatar">
-    </div> -->
+    <!-- Modal Content -->
+    <form id="signInForm" class="modal-content animate">
+        <div class="signInContainer">
+            <label><b></b></label><br>
+            <input type="text" placeholder="Enter Email Address" name="uname" required>
+            <br>
+            <label><b></b></label><br>
+            <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <div class="signInContainer">
-      <label><b></b></label><br>
-      <input type="text" placeholder="Enter Email Address" name="uname" required>
-      <br>
-      <label><b></b></label><br>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+            <button id="signInSubmit" class="signInSubmitBtn" type="submit">Login</button>
+            <br>
+            <a href="/newUser" class="nuButton" target="parent">New User</a>
+        </div>
+    </form>
 
-      <button id="signInSubmit" class="signInSubmitBtn" type="submit" formtarget="_parent">Login</button>
-      <br>
-      <!--<p><a href="/newUser" target="parent">New User</a></p>-->
-      <a href="/newUser" class="nuButton" target="parent">New User</a>
-
-    </div>
-  </form>
 </div>
 
-<!--<script>
-$("#signInSubmit").click(function(){
-  document.getElementById("iframe").style.display = "block";
-});
-</script>-->
