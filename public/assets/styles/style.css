@@ -161,12 +161,15 @@ iframe { /*contains the .modal container*/
 }
 
 .signInSubmitBtn, a.nuButton {
-    background-color: black;
     color: white;
     padding: 10px 22px;
     margin: 5px;
     cursor: pointer;
     width: auto;
+}
+
+.signInSubmitBtn {
+    background-color: black;
 }
 
 a.nuButton { 
@@ -182,7 +185,7 @@ a.nuButton {
     opacity: 0.8;
 }
 
-/**********CONTACT, NEW USER, SCHEDULE & CONFIRMATION PGS**********/
+/**********HEADING & FORM MARGINS FOR CONTACT, NEW USER, SCHEDULE & CONFIRMATION PGS**********/
 .servicesInfo {
     margin-top: 70px;
     font-weight: bold;
@@ -191,25 +194,17 @@ a.nuButton {
     text-align: center;
 }
 
-.contactForm, .newuserForm, .scheduleForm, .confirmationForm {
+.contactForm, .newuserForm, .scheduleForm {
   margin-top: 20px;
-  padding: 20px;  
-}
-
-.contactForm { 
-  margin: 0 auto -120px; /*used for sticky footer*/
-  min-height: 100%; /*used for sticky footer*/
-  overflow: hidden; /*used for sticky footer*/
-}
-
-.confirmationForm { 
-    margin: 0 auto -180px; /*used for sticky footer*/
-    min-height: 100%; /*used for sticky footer*/
-    overflow: hidden; /*used for sticky footer*/    
+  padding: 20px;
 }
 
 .panel-default {
 	border: none;
+}
+
+.confirmationForm {
+    margin: 20px;
 }
 
 /**********SCHEDULE PAGE**********/
@@ -285,4 +280,3 @@ div label:nth-of-type(1) {
     background-color: green;
     color: white;
 }
-
