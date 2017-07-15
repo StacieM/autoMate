@@ -15,10 +15,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "root",
-    "database": "automate_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "ken6aforizal9umh",
+    "password": "xc9ohcjftjp721f9",
+    "database": "b2efhhawskb86v8k",
+    "host": "jj820qt5lpu6krut.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "use_env_variable":"mysql://ken6aforizal9umh:xc9ohcjftjp721f9@jj820qt5lpu6krut.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/b2efhhawskb86v8k"
   }
 }
